@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from branca.element import Figure, JavascriptLink
 
 from folium.vector_layers import path_options, BaseMultiLocation

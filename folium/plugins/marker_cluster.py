@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from branca.element import CssLink, Figure, JavascriptLink
 
 from folium.map import Layer, Marker

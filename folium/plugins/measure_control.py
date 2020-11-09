@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from branca.element import CssLink, Figure, JavascriptLink, MacroElement
 
 from folium.utilities import parse_options

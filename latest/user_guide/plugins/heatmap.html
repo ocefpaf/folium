@@ -1,0 +1,677 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Heatmap &#8212; Folium documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=924e9346" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script src="../../_static/documentation_options.js?v=c7e0629b"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/plugins/heatmap';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://python-visualization.github.io/folium/latest/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'latest';
+        </script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="HeatMapWithTime Plugin" href="heatmap_with_time.html" />
+    <link rel="prev" title="GroupedLayerControl" href="grouped_layer_control.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Folium documentation</p>
+  
+</a></div>
+    
+      <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      latest  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../index.html">
+                        Home
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../getting_started.html">
+                        Getting started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../../user_guide.html">
+                        User guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../advanced_guide.html">
+                        Advanced guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../reference.html">
+                        API reference
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../index.html">
+                        Home
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../getting_started.html">
+                        Getting started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../../user_guide.html">
+                        User guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../advanced_guide.html">
+                        Advanced guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../reference.html">
+                        API reference
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../map.html">Map</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ui_elements.html">UI elements</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ui_elements/layer_control.html">LayerControl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ui_elements/popups.html">Popups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ui_elements/icons.html">Icons</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../raster_layers.html">Raster layers</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../raster_layers/tiles.html">Tiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../raster_layers/image_overlay.html">ImageOverlay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../raster_layers/video_overlay.html">VideoOverlay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../raster_layers/wms_tile_layer.html">WmsTileLayer</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../vector_layers.html">Vector layers</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../vector_layers/circle_and_circle_marker.html">Circle and CircleMarker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_layers/polyline.html">PolyLine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_layers/rectangle.html">Rectangle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_layers/polygon.html">Polygon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_layers/colorline.html">ColorLine</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../geojson.html">GeoJSON and choropleth</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../geojson/geojson.html">Using <code class="docutils literal notranslate"><span class="pre">GeoJson</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../geojson/choropleth.html">Using <code class="docutils literal notranslate"><span class="pre">Choropleth</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../geojson/geojson_marker.html">GeoJSON point features with markers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../geojson/geojson_popup_and_tooltip.html">GeoJSON popup and tooltip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../geojson/geopandas_and_geo_interface.html">Using GeoPandas.GeoDataFrame in folium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../geojson/smoothing.html">Smoothing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../features.html">Features</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../features/fit_overlays.html">FitOverlays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/click_related_classes.html">Click-related classes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../plugins.html">Plugins</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="boat_marker.html">BoatMarker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beautify_icon.html">BeautifyIcon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="draw.html">Draw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dual_map.html">DualMap plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="featuregroup_subgroup.html">FeatureGroupSubGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="float_image.html">FloatImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fullscreen.html">Fullscreen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geocoder.html">Geocoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grouped_layer_control.html">GroupedLayerControl</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Heatmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatmap_with_time.html">HeatMapWithTime Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="locate_control.html">LocateControl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="marker_cluster.html">MarkerCluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mini_map.html">MiniMap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="measure_control.html">MeasureControl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mouse_position.html">MousePosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pattern.html">Pattern plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polyline_offset.html">PolylineOffset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polyline_textpath_and_antpath.html">PolylineTextPath and AntPath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scroll_zoom_toggler.html">ScrollZoomToggler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="search.html">Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="semi_circle.html">SemiCircle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="side_by_side_layers.html">SideBySideLayers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tag_filter_button.html">TagFilterButton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terminator.html">Terminator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeslider_choropleth.html">TimeSliderChoropleth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timestamped_geojson.html">TimestampedGeoJson</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_tiles.html">Vector tiles using VectorGridProtobuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WmsTimeDimension.html">TimestampedWmsTileLayers</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../user_guide.html" class="nav-link">User guide</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../plugins.html" class="nav-link">Plugins</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Heatmap</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="Heatmap">
+<h1>Heatmap<a class="headerlink" href="#Heatmap" title="Link to this heading">#</a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">48</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">folium</span>
+<span class="kn">from</span> <span class="nn">folium.plugins</span> <span class="kn">import</span> <span class="n">HeatMap</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">([</span><span class="mf">48.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">],</span> <span class="n">tiles</span><span class="o">=</span><span class="s2">&quot;stamentoner&quot;</span><span class="p">,</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="n">HeatMap</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+
+        &lt;script&gt;
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        &lt;/script&gt;
+
+    &lt;style&gt;html, body {width: 100%;height: 100%;margin: 0;padding: 0;}&lt;/style&gt;
+    &lt;style&gt;#map {position:absolute;top:0;bottom:0;right:0;left:0;}&lt;/style&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-1.12.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
+
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+            &lt;style&gt;
+                #map_47bdebf85c8e237743a3b698df451f63 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            &lt;/style&gt;
+
+    &lt;script src=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_47bdebf85c8e237743a3b698df451f63&quot; &gt;&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;script&gt;
+
+
+            var map_47bdebf85c8e237743a3b698df451f63 = L.map(
+                &quot;map_47bdebf85c8e237743a3b698df451f63&quot;,
+                {
+                    center: [48.0, 5.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 6,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+
+
+
+
+            var tile_layer_d5348f57440762b4fa980e80cc60ea47 = L.tileLayer(
+                &quot;https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png&quot;,
+                {&quot;attribution&quot;: &quot;Map tiles by \u003ca target=\&quot;_blank\&quot; href=\&quot;http://stamen.com\&quot;\u003eStamen Design\u003c/a\u003e, under \u003ca target=\&quot;_blank\&quot; href=\&quot;http://creativecommons.org/licenses/by/3.0\&quot;\u003eCC BY 3.0\u003c/a\u003e. Data by \u0026copy; \u003ca target=\&quot;_blank\&quot; href=\&quot;http://openstreetmap.org\&quot;\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\&quot;_blank\&quot; href=\&quot;http://www.openstreetmap.org/copyright\&quot;\u003eODbL\u003c/a\u003e.&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
+            );
+
+
+                tile_layer_d5348f57440762b4fa980e80cc60ea47.addTo(map_47bdebf85c8e237743a3b698df451f63);
+
+            var heat_map_36384244882aedf8eec411d34c0210dc = L.heatLayer(
+                [[49.70945092847709, 5.5727747245469565, -0.04305914598684324], [48.90757584112299, 2.156387355011734, 2.540368880746888], [46.13460282805985, 5.928884863829234, -0.6877624802895901], [48.24293026746862, 4.517401717780512, 0.8046169433583307], [47.43723465700542, 5.459801943057124, 0.4752702790166261], [47.73490814017942, 4.707558752922227, 0.12951875873447405], [49.97678813178478, 3.3391336805995344, 0.7798915715670345], [47.35624389708822, 4.847209774800649, 1.2663321613571041], [46.46930574839036, 6.208646879528579, 2.513369738966718], [46.1738467281501, 4.407808645001394, 0.8579813229555572], [48.3528097421799, 5.640660645664836, 1.9880893163209303], [47.62748581484968, 6.7626916515996855, 1.4237431931204967], [46.94138601319134, 4.476927284363377, -0.17369250094382926], [50.54467409507466, 6.309207808073441, 1.3959479841387619], [47.269388972444034, 5.044175756322877, 0.7935818745907791], [49.70000106910249, 6.642543097943641, 0.6997479957377479], [48.93691221746737, 4.370528133706422, 3.0439135773881727], [48.452676340666336, 4.738441332716851, 1.6989393236435313], [47.29884927521736, 4.893617911329213, 1.0478980178208541], [47.458317659568806, 4.39891636743699, 1.0397787840881842], [47.71299793886273, 4.838925262305055, 1.8408957131719585], [48.76941629544902, 4.882512916534977, 0.6946750190055562], [46.898879808422805, 5.190681275447064, 1.223393484783713], [48.54897660151621, 5.725215388708917, 2.1277043683464076], [47.04142330041328, 4.894641143761865, 0.32010105223981333], [46.87370238938771, 4.0642346236466995, 0.21309044736273708], [46.41075950165552, 3.276694639437607, 1.6070750546933061], [48.30031346323312, 7.263998324853818, 1.7596722120053476], [48.036715346394146, 5.104777806198717, -0.07629040657290709], [49.21253354474097, 5.474420073650906, -0.22575547523070072], [48.70396866183365, 4.553462503355966, 1.715830867731054], [47.54395398782894, 5.8346410422980854, 1.6425915500121473], [49.13723533843041, 4.668900908743275, 0.42158443224459563], [48.75279745870994, 4.720165360767406, 3.5039381082829864], [48.92084651110552, 4.6738714847849465, 0.5006191092439586], [47.567127541435134, 5.390651963702938, -0.42908043450847244], [48.744695700726616, 5.5839760491567265, -1.681360287918321], [45.901655834313644, 5.7881908579881385, 1.423452392645131], [50.360583854739374, 6.060182025450023, 2.3004984119792513], [48.725593450301965, 4.693556850973149, 2.712824921217095], [48.48858751709839, 3.72113684303557, -0.24397881569297164], [46.252426586509095, 6.9505705512981155, 0.5974232314645461], [47.42325165661448, 5.50809454633057, -0.17635952180523273], [49.1431115879817, 3.837818519380263, 0.7671477831750937], [49.08967454962013, 5.60773885565157, 1.6241611407638894], [47.83122793113976, 5.3108522719207505, 0.972359650131322], [49.02432827698195, 5.2264871862319, 1.198688517821948], [48.50478154454747, 4.2350664382551235, 1.5105481845899547], [48.05142302373252, 4.182469866827789, 0.8637092386359064], [48.62356538417592, 5.637292757765083, -0.3816748907357852], [48.85782858586981, 3.4359465243533154, -0.3845600634652091], [49.2371013952309, 5.387500817433623, 1.660253483288014], [45.74205869428568, 5.789864919583212, 0.8098315761085425], [48.04685925731923, 5.703306741889592, 2.3322740941456055], [47.88398788359228, 4.223742789113555, 1.895523946738613], [50.27735239781556, 4.527330978761262, 1.1583632299150741], [48.121310314776196, 4.935822921302947, -0.06650756431165838], [47.611672266627956, 4.611612820947471, 1.5363557196173623], [46.918580584042054, 4.769879014230908, 1.5127076289092471], [47.00405250910847, 6.472726146665568, 0.7878956351333236], [48.60238019888842, 3.9295472132718468, 0.6499444790803157], [47.24552840152975, 6.39043998106392, 0.35607117628129614], [48.374707315168614, 3.05502613683779, 2.178208863535886], [47.52708550533389, 5.129583165124775, 0.9584766698161461], [47.886954632791706, 6.060069232373403, 2.3601470671754123], [47.884770298411276, 4.286330655500605, 2.1408741368613855], [49.56863874200172, 5.136009141758212, 2.200057789182331], [49.021098535279975, 3.9801214323888314, 3.108187049571158], [48.8937414045532, 5.697527128787978, 0.4323760707155585], [48.851949278498545, 4.7988884181757525, 2.744821485327678], [49.65703156780175, 6.396737034712701, 2.171153415798089], [46.05924112006758, 4.763995516922584, 1.212524120562855], [48.833277434392365, 4.339361155370505, 0.7214549140606038], [47.94699502981714, 5.568003958825486, 1.7779037412926664], [48.38168816221574, 5.252797972167763, 1.2262962038791205], [48.622222462081105, 5.636602821644964, -1.0221037660699808], [48.41046185359071, 5.728336501423641, 1.2591769476154189], [48.37266706344314, 4.343263732981014, 1.3961164710322531], [48.373282808560276, 3.9273877569089874, 2.7596376631688493], [48.2360070908566, 6.865404852549128, -0.5808730173219032], [48.59504706709439, 4.001120403010525, 1.192288852265931], [47.31356636431342, 5.660704778278661, -0.5098899227738605], [46.88411136522075, 4.267396418193125, 2.200995440411094], [48.68987061008441, 3.680773811636719, 0.1268694616545487], [48.52108899134672, 4.26822471167332, -0.27661877529322276], [44.82996145843087, 4.021268046419992, 1.7155465530494425], [48.25027571543899, 5.708488367161571, 0.7969626623791404], [47.401487354761365, 5.808031555782395, 1.3786301455810892], [50.372862186202745, 6.626955583964509, 1.5491974752809137], [48.8061866064437, 5.418566027568335, 2.048004684281797], [47.190160212489175, 5.10712337551751, -0.105042431840491], [47.11132640715962, 5.520388245896579, 2.7276407913446246], [48.60047852795791, 5.146774379241606, 0.8828151164648597], [47.65297156068506, 5.8850573270749695, -0.6304820411719958], [47.23722451915764, 4.720162563404454, 2.9085480253551346], [48.36849454266926, 5.619124523345789, 0.6288859092229822], [47.6148904983667, 4.872032429954955, -0.10775862924036828], [49.16330923985497, 5.35330862237029, 1.7451171556723342], [47.30370559058402, 4.253124629937419, 0.6395189878259073], [47.40920469053352, 3.737092824043174, 1.1975280587357962]],
+                {&quot;blur&quot;: 15, &quot;maxZoom&quot;: 18, &quot;minOpacity&quot;: 0.5, &quot;radius&quot;: 25}
+            );
+
+
+                heat_map_36384244882aedf8eec411d34c0210dc.addTo(map_47bdebf85c8e237743a3b698df451f63);
+&lt;/script&gt;
+&lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div>
+</div>
+</section>
+
+
+                </article>
+              
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="grouped_layer_control.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">GroupedLayerControl</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="heatmap_with_time.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">HeatMapWithTime Plugin</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="tocsection sourcelink">
+    <a href="../../_sources/user_guide/plugins/heatmap.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item"><!-- This will display the version of the docs -->
+Folium version 0.1.dev1.dev+g3cabb5a</div>
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2013, Rob Story.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.5.
+    <br/>
+  </p>
+</div>
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

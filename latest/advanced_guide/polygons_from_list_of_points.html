@@ -1,0 +1,2074 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Creating a polygon from a list of points &#8212; Folium documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=924e9346" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script src="../_static/documentation_options.js?v=c7e0629b"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'advanced_guide/polygons_from_list_of_points';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://python-visualization.github.io/folium/latest/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'latest';
+        </script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="API reference" href="../reference.html" />
+    <link rel="prev" title="Piechart icons" href="piechart_icons.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Folium documentation</p>
+  
+</a></div>
+    
+      <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      latest  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        Home
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting_started.html">
+                        Getting started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../user_guide.html">
+                        User guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../advanced_guide.html">
+                        Advanced guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../reference.html">
+                        API reference
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        Home
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting_started.html">
+                        Getting started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../user_guide.html">
+                        User guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../advanced_guide.html">
+                        Advanced guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../reference.html">
+                        API reference
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="flask.html">Using folium with flask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="choropleth%20with%20Jenks%20natural%20breaks%20optimization.html">Integrating Jenks Natural Break Optimization with choropleth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subplots.html">Subplots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colormaps.html">Using colormaps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="world_copy.html">Scrolling beyond the world edge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_panes.html">Panes and CustomPane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geodedetic_image_overlay.html">Geodedetic image overlay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_tiles.html">Custom tiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="piechart_icons.html">Piechart icons</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Creating a polygon from a list of points</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../advanced_guide.html" class="nav-link">Advanced guide</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Creating a polygon from a list of points</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="Creating-a-polygon-from-a-list-of-points">
+<h1>Creating a polygon from a list of points<a class="headerlink" href="#Creating-a-polygon-from-a-list-of-points" title="Link to this heading">#</a></h1>
+<p>For many of those working with geo data it is a common task being asked to create a polygon from a list of points. More specific, to create a polygon that wraps around those points in a meaningful manner. So, there are several sources in the web explaining how to create the shape (see sources at end of document). This example notebook is the application of those solutions to folium maps.</p>
+<section id="Helpers">
+<h2>Helpers<a class="headerlink" href="#Helpers" title="Link to this heading">#</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="kn">import</span> <span class="nn">folium</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="kn">import</span> <span class="n">ConvexHull</span>
+
+
+<span class="c1"># Function to create a list of some random points</span>
+<span class="k">def</span> <span class="nf">randome_points</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="n">LON_min</span><span class="p">,</span> <span class="n">LON_max</span><span class="p">,</span> <span class="n">LAT_min</span><span class="p">,</span> <span class="n">LAT_max</span><span class="p">):</span>
+
+    <span class="n">points</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">amount</span><span class="p">):</span>
+        <span class="n">points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">LON_min</span><span class="p">,</span> <span class="n">LON_max</span><span class="p">),</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">LAT_min</span><span class="p">,</span> <span class="n">LAT_max</span><span class="p">))</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">points</span>
+
+
+<span class="c1"># Function to draw points in the map</span>
+<span class="k">def</span> <span class="nf">draw_points</span><span class="p">(</span><span class="n">map_object</span><span class="p">,</span> <span class="n">list_of_points</span><span class="p">,</span> <span class="n">layer_name</span><span class="p">,</span> <span class="n">line_color</span><span class="p">,</span> <span class="n">fill_color</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+
+    <span class="n">fg</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">FeatureGroup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">layer_name</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">list_of_points</span><span class="p">:</span>
+        <span class="n">fg</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span>
+            <span class="n">folium</span><span class="o">.</span><span class="n">CircleMarker</span><span class="p">(</span>
+                <span class="n">point</span><span class="p">,</span>
+                <span class="n">radius</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                <span class="n">color</span><span class="o">=</span><span class="n">line_color</span><span class="p">,</span>
+                <span class="n">fill_color</span><span class="o">=</span><span class="n">fill_color</span><span class="p">,</span>
+                <span class="n">popup</span><span class="o">=</span><span class="p">(</span><span class="n">folium</span><span class="o">.</span><span class="n">Popup</span><span class="p">(</span><span class="n">text</span><span class="p">)),</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="n">map_object</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">fg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Convex-hull">
+<h2>Convex hull<a class="headerlink" href="#Convex-hull" title="Link to this heading">#</a></h2>
+<p>The convex hull is probably the most common approach - its goal is to create the smallest polygon that contains all points from a given list. The scipy.spatial package provides this algorithm (<a class="reference external" href="https://docs.scipy.org/doc/scipy-0.19.0/reference/generated/scipy.spatial.ConvexHull.html">https://docs.scipy.org/doc/scipy-0.19.0/reference/generated/scipy.spatial.ConvexHull.html</a>, accessed 29.12.2018).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Function that takes a map and a list of points (LON,LAT tupels) and</span>
+<span class="c1"># returns a map with the convex hull polygon from the points as a new layer</span>
+
+
+<span class="k">def</span> <span class="nf">create_convexhull_polygon</span><span class="p">(</span>
+    <span class="n">map_object</span><span class="p">,</span> <span class="n">list_of_points</span><span class="p">,</span> <span class="n">layer_name</span><span class="p">,</span> <span class="n">line_color</span><span class="p">,</span> <span class="n">fill_color</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">text</span>
+<span class="p">):</span>
+
+    <span class="c1"># Since it is pointless to draw a convex hull polygon around less than 3 points check len of input</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_of_points</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="c1"># Create the convex hull using scipy.spatial</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="p">[</span><span class="n">list_of_points</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ConvexHull</span><span class="p">(</span><span class="n">list_of_points</span><span class="p">)</span><span class="o">.</span><span class="n">vertices</span><span class="p">]</span>
+
+    <span class="c1"># Create feature group, add the polygon and add the feature group to the map</span>
+    <span class="n">fg</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">FeatureGroup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">layer_name</span><span class="p">)</span>
+    <span class="n">fg</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span>
+        <span class="n">folium</span><span class="o">.</span><span class="n">vector_layers</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span>
+            <span class="n">locations</span><span class="o">=</span><span class="n">form</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">line_color</span><span class="p">,</span>
+            <span class="n">fill_color</span><span class="o">=</span><span class="n">fill_color</span><span class="p">,</span>
+            <span class="n">weight</span><span class="o">=</span><span class="n">weight</span><span class="p">,</span>
+            <span class="n">popup</span><span class="o">=</span><span class="p">(</span><span class="n">folium</span><span class="o">.</span><span class="n">Popup</span><span class="p">(</span><span class="n">text</span><span class="p">)),</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">map_object</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">fg</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">map_object</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize map</span>
+<span class="n">my_convexhull_map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">48.5</span><span class="p">,</span> <span class="mf">9.5</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># Create a convex hull polygon that contains some points</span>
+<span class="n">list_of_points</span> <span class="o">=</span> <span class="n">randome_points</span><span class="p">(</span>
+    <span class="n">amount</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">LON_min</span><span class="o">=</span><span class="mi">48</span><span class="p">,</span> <span class="n">LON_max</span><span class="o">=</span><span class="mi">49</span><span class="p">,</span> <span class="n">LAT_min</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">LAT_max</span><span class="o">=</span><span class="mi">10</span>
+<span class="p">)</span>
+
+<span class="n">create_convexhull_polygon</span><span class="p">(</span>
+    <span class="n">my_convexhull_map</span><span class="p">,</span>
+    <span class="n">list_of_points</span><span class="p">,</span>
+    <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Example convex hull&quot;</span><span class="p">,</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;lightblue&quot;</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;lightskyblue&quot;</span><span class="p">,</span>
+    <span class="n">weight</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Example convex hull&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">draw_points</span><span class="p">(</span>
+    <span class="n">my_convexhull_map</span><span class="p">,</span>
+    <span class="n">list_of_points</span><span class="p">,</span>
+    <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Example points for convex hull&quot;</span><span class="p">,</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;royalblue&quot;</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;royalblue&quot;</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Example point for convex hull&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Add layer control and show map</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">LayerControl</span><span class="p">(</span><span class="n">collapsed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">my_convexhull_map</span><span class="p">)</span>
+<span class="n">my_convexhull_map</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+
+        &lt;script&gt;
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        &lt;/script&gt;
+
+    &lt;style&gt;html, body {width: 100%;height: 100%;margin: 0;padding: 0;}&lt;/style&gt;
+    &lt;style&gt;#map {position:absolute;top:0;bottom:0;right:0;left:0;}&lt;/style&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-1.12.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
+
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+            &lt;style&gt;
+                #map_cdfcca40bd820f532c5ade9bdb5e7dd2 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            &lt;/style&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+
+
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_cdfcca40bd820f532c5ade9bdb5e7dd2&quot; &gt;&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;script&gt;
+
+
+            var map_cdfcca40bd820f532c5ade9bdb5e7dd2 = L.map(
+                &quot;map_cdfcca40bd820f532c5ade9bdb5e7dd2&quot;,
+                {
+                    center: [48.5, 9.5],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 8,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+
+
+
+
+            var tile_layer_8fc3ceeadd67421524a1f6a2389f6799 = L.tileLayer(
+                &quot;https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
+                {&quot;attribution&quot;: &quot;Data by \u0026copy; \u003ca target=\&quot;_blank\&quot; href=\&quot;http://openstreetmap.org\&quot;\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\&quot;_blank\&quot; href=\&quot;http://www.openstreetmap.org/copyright\&quot;\u003eODbL\u003c/a\u003e.&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
+            );
+
+
+                tile_layer_8fc3ceeadd67421524a1f6a2389f6799.addTo(map_cdfcca40bd820f532c5ade9bdb5e7dd2);
+
+            var feature_group_2132aa874f917e99f1d82d9b582591d8 = L.featureGroup(
+                {}
+            );
+
+
+            var polygon_a7fe215fcac0bf579ffeb33aca71198d = L.polygon(
+                [[48.479667193442125, 9.835179828292551], [48.26388793148648, 9.55919302776467], [48.50939055403401, 9.131773191099603], [48.6099548859583, 9.042306370701032], [48.882533526532384, 9.424368810593766], [48.89425961297054, 9.890273844089412], [48.790009737443924, 9.948469708688863]],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;lightblue&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;lightskyblue&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;noClip&quot;: false, &quot;opacity&quot;: 1.0, &quot;smoothFactor&quot;: 1.0, &quot;stroke&quot;: true, &quot;weight&quot;: 5}
+            ).addTo(feature_group_2132aa874f917e99f1d82d9b582591d8);
+
+
+        var popup_3db43af6210bd298033266ef1c349fb9 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_3beabe45666ebfd48886bd8bc75e09f5 = $(`&lt;div id=&quot;html_3beabe45666ebfd48886bd8bc75e09f5&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example convex hull&lt;/div&gt;`)[0];
+                popup_3db43af6210bd298033266ef1c349fb9.setContent(html_3beabe45666ebfd48886bd8bc75e09f5);
+
+
+
+        polygon_a7fe215fcac0bf579ffeb33aca71198d.bindPopup(popup_3db43af6210bd298033266ef1c349fb9)
+        ;
+
+
+
+
+                feature_group_2132aa874f917e99f1d82d9b582591d8.addTo(map_cdfcca40bd820f532c5ade9bdb5e7dd2);
+
+            var feature_group_f5c2a2a234a37f0306e0aff17323554a = L.featureGroup(
+                {}
+            );
+
+
+            var circle_marker_74be49184d1e4b20ec6f5fef3ff9fa13 = L.circleMarker(
+                [48.57091855965393, 9.596128403318787],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;royalblue&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;royalblue&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_f5c2a2a234a37f0306e0aff17323554a);
+
+
+        var popup_c2115b83dcaa22b5829e3fa8b0d820c3 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_607aabc096ffc1fc8845efe0dc4fb8db = $(`&lt;div id=&quot;html_607aabc096ffc1fc8845efe0dc4fb8db&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for convex hull&lt;/div&gt;`)[0];
+                popup_c2115b83dcaa22b5829e3fa8b0d820c3.setContent(html_607aabc096ffc1fc8845efe0dc4fb8db);
+
+
+
+        circle_marker_74be49184d1e4b20ec6f5fef3ff9fa13.bindPopup(popup_c2115b83dcaa22b5829e3fa8b0d820c3)
+        ;
+
+
+
+
+            var circle_marker_4c8d41049fc90049c3c43822063ae940 = L.circleMarker(
+                [48.686061385775695, 9.676452120033453],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;royalblue&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;royalblue&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_f5c2a2a234a37f0306e0aff17323554a);
+
+
+        var popup_2b8dc7ab9f5c248a99da22ed453c376d = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_ab4d79790d7a49ac667b56cdcc94905f = $(`&lt;div id=&quot;html_ab4d79790d7a49ac667b56cdcc94905f&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for convex hull&lt;/div&gt;`)[0];
+                popup_2b8dc7ab9f5c248a99da22ed453c376d.setContent(html_ab4d79790d7a49ac667b56cdcc94905f);
+
+
+
+        circle_marker_4c8d41049fc90049c3c43822063ae940.bindPopup(popup_2b8dc7ab9f5c248a99da22ed453c376d)
+        ;
+
+
+
+
+            var circle_marker_8cd6a3613bb97079688db9a5cdba846d = L.circleMarker(
+                [48.790009737443924, 9.948469708688863],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;royalblue&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;royalblue&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_f5c2a2a234a37f0306e0aff17323554a);
+
+
+        var popup_640db2668ef86a4929e14f4e0d95e825 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_3885bf7881828a60bff2fdbdeaa291d2 = $(`&lt;div id=&quot;html_3885bf7881828a60bff2fdbdeaa291d2&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for convex hull&lt;/div&gt;`)[0];
+                popup_640db2668ef86a4929e14f4e0d95e825.setContent(html_3885bf7881828a60bff2fdbdeaa291d2);
+
+
+
+        circle_marker_8cd6a3613bb97079688db9a5cdba846d.bindPopup(popup_640db2668ef86a4929e14f4e0d95e825)
+        ;
+
+
+
+
+            var circle_marker_165587ad2a66b9c5a7d059ba4840f026 = L.circleMarker(
+                [48.479667193442125, 9.835179828292551],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;royalblue&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;royalblue&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_f5c2a2a234a37f0306e0aff17323554a);
+
+
+        var popup_24c67b5873ea5e59795883488ad13e12 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_7754295ce4bf58b6c8cd6912a5e6f5b4 = $(`&lt;div id=&quot;html_7754295ce4bf58b6c8cd6912a5e6f5b4&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for convex hull&lt;/div&gt;`)[0];
+                popup_24c67b5873ea5e59795883488ad13e12.setContent(html_7754295ce4bf58b6c8cd6912a5e6f5b4);
+
+
+
+        circle_marker_165587ad2a66b9c5a7d059ba4840f026.bindPopup(popup_24c67b5873ea5e59795883488ad13e12)
+        ;
+
+
+
+
+            var circle_marker_3095ed2a6d12b356fdd1c2afe556be2a = L.circleMarker(
+                [48.89425961297054, 9.890273844089412],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;royalblue&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;royalblue&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_f5c2a2a234a37f0306e0aff17323554a);
+
+
+        var popup_c1e93367c882a61c9d4ae5227a40821c = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_61925ff1191b45b6c172a9090638764d = $(`&lt;div id=&quot;html_61925ff1191b45b6c172a9090638764d&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for convex hull&lt;/div&gt;`)[0];
+                popup_c1e93367c882a61c9d4ae5227a40821c.setContent(html_61925ff1191b45b6c172a9090638764d);
+
+
+
+        circle_marker_3095ed2a6d12b356fdd1c2afe556be2a.bindPopup(popup_c1e93367c882a61c9d4ae5227a40821c)
+        ;
+
+
+
+
+            var circle_marker_3574a30d641add21560fdbf8cdbf17d6 = L.circleMarker(
+                [48.882533526532384, 9.424368810593766],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;royalblue&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;royalblue&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_f5c2a2a234a37f0306e0aff17323554a);
+
+
+        var popup_37653a86c48fd71924e369f59b9352bf = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_7f3a657ccdf7723b18eeee228d93335c = $(`&lt;div id=&quot;html_7f3a657ccdf7723b18eeee228d93335c&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for convex hull&lt;/div&gt;`)[0];
+                popup_37653a86c48fd71924e369f59b9352bf.setContent(html_7f3a657ccdf7723b18eeee228d93335c);
+
+
+
+        circle_marker_3574a30d641add21560fdbf8cdbf17d6.bindPopup(popup_37653a86c48fd71924e369f59b9352bf)
+        ;
+
+
+
+
+            var circle_marker_c98c918a57f16cb48a19913bc278885d = L.circleMarker(
+                [48.63892124990465, 9.790672829169274],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;royalblue&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;royalblue&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_f5c2a2a234a37f0306e0aff17323554a);
+
+
+        var popup_cf6bbfbf77df25299cb613779e06b1cd = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_fa38b3e5d6bd64d57f2230bf6e117e0b = $(`&lt;div id=&quot;html_fa38b3e5d6bd64d57f2230bf6e117e0b&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for convex hull&lt;/div&gt;`)[0];
+                popup_cf6bbfbf77df25299cb613779e06b1cd.setContent(html_fa38b3e5d6bd64d57f2230bf6e117e0b);
+
+
+
+        circle_marker_c98c918a57f16cb48a19913bc278885d.bindPopup(popup_cf6bbfbf77df25299cb613779e06b1cd)
+        ;
+
+
+
+
+            var circle_marker_beb89925cef1eadebeabc21e954fdd9a = L.circleMarker(
+                [48.6099548859583, 9.042306370701032],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;royalblue&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;royalblue&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_f5c2a2a234a37f0306e0aff17323554a);
+
+
+        var popup_29e413f596f45bdb8a209a2783046fa2 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_1a5389f071b3d1a12fc511dc8b72774c = $(`&lt;div id=&quot;html_1a5389f071b3d1a12fc511dc8b72774c&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for convex hull&lt;/div&gt;`)[0];
+                popup_29e413f596f45bdb8a209a2783046fa2.setContent(html_1a5389f071b3d1a12fc511dc8b72774c);
+
+
+
+        circle_marker_beb89925cef1eadebeabc21e954fdd9a.bindPopup(popup_29e413f596f45bdb8a209a2783046fa2)
+        ;
+
+
+
+
+            var circle_marker_80736f0c2d114ecb449c6d1cb2620ceb = L.circleMarker(
+                [48.50939055403401, 9.131773191099603],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;royalblue&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;royalblue&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_f5c2a2a234a37f0306e0aff17323554a);
+
+
+        var popup_3dbe4b4ff47c851458a89530d505372b = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_f344a7fbee4b869c4b3a89df53d10120 = $(`&lt;div id=&quot;html_f344a7fbee4b869c4b3a89df53d10120&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for convex hull&lt;/div&gt;`)[0];
+                popup_3dbe4b4ff47c851458a89530d505372b.setContent(html_f344a7fbee4b869c4b3a89df53d10120);
+
+
+
+        circle_marker_80736f0c2d114ecb449c6d1cb2620ceb.bindPopup(popup_3dbe4b4ff47c851458a89530d505372b)
+        ;
+
+
+
+
+            var circle_marker_3f36ed9749e7a11a071f59ccb0edf765 = L.circleMarker(
+                [48.26388793148648, 9.55919302776467],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;royalblue&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;royalblue&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_f5c2a2a234a37f0306e0aff17323554a);
+
+
+        var popup_d46d6b1c75f4c6bbcbe40e802a438daa = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_d34ba1e9cdae811ab2dfb3ee16348d1c = $(`&lt;div id=&quot;html_d34ba1e9cdae811ab2dfb3ee16348d1c&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for convex hull&lt;/div&gt;`)[0];
+                popup_d46d6b1c75f4c6bbcbe40e802a438daa.setContent(html_d34ba1e9cdae811ab2dfb3ee16348d1c);
+
+
+
+        circle_marker_3f36ed9749e7a11a071f59ccb0edf765.bindPopup(popup_d46d6b1c75f4c6bbcbe40e802a438daa)
+        ;
+
+
+
+
+                feature_group_f5c2a2a234a37f0306e0aff17323554a.addTo(map_cdfcca40bd820f532c5ade9bdb5e7dd2);
+
+            var layer_control_609f8b7c0e2afd1183f3b7328b9479e7_layers = {
+                base_layers : {
+                    &quot;openstreetmap&quot; : tile_layer_8fc3ceeadd67421524a1f6a2389f6799,
+                },
+                overlays :  {
+                    &quot;Example convex hull&quot; : feature_group_2132aa874f917e99f1d82d9b582591d8,
+                    &quot;Example points for convex hull&quot; : feature_group_f5c2a2a234a37f0306e0aff17323554a,
+                },
+            };
+            let layer_control_609f8b7c0e2afd1183f3b7328b9479e7 = L.control.layers(
+                layer_control_609f8b7c0e2afd1183f3b7328b9479e7_layers.base_layers,
+                layer_control_609f8b7c0e2afd1183f3b7328b9479e7_layers.overlays,
+                {&quot;autoZIndex&quot;: true, &quot;collapsed&quot;: false, &quot;position&quot;: &quot;topright&quot;}
+            ).addTo(map_cdfcca40bd820f532c5ade9bdb5e7dd2);
+
+
+&lt;/script&gt;
+&lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div>
+</div>
+</section>
+<section id="Envelope">
+<h2>Envelope<a class="headerlink" href="#Envelope" title="Link to this heading">#</a></h2>
+<p>The envelope is another interesting approach - its goal is to create a box that contains all points from a given list.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_envelope_polygon</span><span class="p">(</span>
+    <span class="n">map_object</span><span class="p">,</span> <span class="n">list_of_points</span><span class="p">,</span> <span class="n">layer_name</span><span class="p">,</span> <span class="n">line_color</span><span class="p">,</span> <span class="n">fill_color</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">text</span>
+<span class="p">):</span>
+
+    <span class="c1"># Since it is pointless to draw a box around less than 2 points check len of input</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_of_points</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="c1"># Find the edges of box</span>
+    <span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">itemgetter</span>
+
+    <span class="n">list_of_points</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">list_of_points</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">x_min</span> <span class="o">=</span> <span class="n">list_of_points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">x_max</span> <span class="o">=</span> <span class="n">list_of_points</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">list_of_points</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">list_of_points</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">list_of_points</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">y_min</span> <span class="o">=</span> <span class="n">list_of_points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">y_max</span> <span class="o">=</span> <span class="n">list_of_points</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">list_of_points</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">upper_left</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_min</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_max</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">upper_right</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_max</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_max</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">lower_right</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_max</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_min</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">lower_left</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_min</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_min</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="n">edges</span> <span class="o">=</span> <span class="p">[</span><span class="n">upper_left</span><span class="p">,</span> <span class="n">upper_right</span><span class="p">,</span> <span class="n">lower_right</span><span class="p">,</span> <span class="n">lower_left</span><span class="p">]</span>
+
+    <span class="c1"># Create feature group, add the polygon and add the feature group to the map</span>
+    <span class="n">fg</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">FeatureGroup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">layer_name</span><span class="p">)</span>
+    <span class="n">fg</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span>
+        <span class="n">folium</span><span class="o">.</span><span class="n">vector_layers</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span>
+            <span class="n">locations</span><span class="o">=</span><span class="n">edges</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">line_color</span><span class="p">,</span>
+            <span class="n">fill_color</span><span class="o">=</span><span class="n">fill_color</span><span class="p">,</span>
+            <span class="n">weight</span><span class="o">=</span><span class="n">weight</span><span class="p">,</span>
+            <span class="n">popup</span><span class="o">=</span><span class="p">(</span><span class="n">folium</span><span class="o">.</span><span class="n">Popup</span><span class="p">(</span><span class="n">text</span><span class="p">)),</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">map_object</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">fg</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">map_object</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize map</span>
+<span class="n">my_envelope_map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">49.5</span><span class="p">,</span> <span class="mf">8.5</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># Create an envelope polygon that contains some points</span>
+<span class="n">list_of_points</span> <span class="o">=</span> <span class="n">randome_points</span><span class="p">(</span>
+    <span class="n">amount</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">LON_min</span><span class="o">=</span><span class="mf">49.1</span><span class="p">,</span> <span class="n">LON_max</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">LAT_min</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">LAT_max</span><span class="o">=</span><span class="mi">9</span>
+<span class="p">)</span>
+
+<span class="n">create_envelope_polygon</span><span class="p">(</span>
+    <span class="n">my_envelope_map</span><span class="p">,</span>
+    <span class="n">list_of_points</span><span class="p">,</span>
+    <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Example envelope&quot;</span><span class="p">,</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;indianred&quot;</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+    <span class="n">weight</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Example envelope&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">draw_points</span><span class="p">(</span>
+    <span class="n">my_envelope_map</span><span class="p">,</span>
+    <span class="n">list_of_points</span><span class="p">,</span>
+    <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Example points for envelope&quot;</span><span class="p">,</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;darkred&quot;</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;darkred&quot;</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Example point for envelope&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Add layer control and show map</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">LayerControl</span><span class="p">(</span><span class="n">collapsed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">my_envelope_map</span><span class="p">)</span>
+<span class="n">my_envelope_map</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+
+        &lt;script&gt;
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        &lt;/script&gt;
+
+    &lt;style&gt;html, body {width: 100%;height: 100%;margin: 0;padding: 0;}&lt;/style&gt;
+    &lt;style&gt;#map {position:absolute;top:0;bottom:0;right:0;left:0;}&lt;/style&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-1.12.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
+
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+            &lt;style&gt;
+                #map_9fbb2b66d32a6c59bc53bd98cf31c825 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            &lt;/style&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+
+
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_9fbb2b66d32a6c59bc53bd98cf31c825&quot; &gt;&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;script&gt;
+
+
+            var map_9fbb2b66d32a6c59bc53bd98cf31c825 = L.map(
+                &quot;map_9fbb2b66d32a6c59bc53bd98cf31c825&quot;,
+                {
+                    center: [49.5, 8.5],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 8,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+
+
+
+
+            var tile_layer_8775891c483d3b0eb505d4ed51073ec3 = L.tileLayer(
+                &quot;https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
+                {&quot;attribution&quot;: &quot;Data by \u0026copy; \u003ca target=\&quot;_blank\&quot; href=\&quot;http://openstreetmap.org\&quot;\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\&quot;_blank\&quot; href=\&quot;http://www.openstreetmap.org/copyright\&quot;\u003eODbL\u003c/a\u003e.&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
+            );
+
+
+                tile_layer_8775891c483d3b0eb505d4ed51073ec3.addTo(map_9fbb2b66d32a6c59bc53bd98cf31c825);
+
+            var feature_group_b375763f45dafa25c0a6ac4c8862123e = L.featureGroup(
+                {}
+            );
+
+
+            var polygon_3d618b14c19c74c19bac05dc87d759b9 = L.polygon(
+                [[49.17000614601233, 8.658940134853918], [49.90640555188366, 8.658940134853918], [49.90640555188366, 8.058830741180385], [49.17000614601233, 8.058830741180385]],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;indianred&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;noClip&quot;: false, &quot;opacity&quot;: 1.0, &quot;smoothFactor&quot;: 1.0, &quot;stroke&quot;: true, &quot;weight&quot;: 5}
+            ).addTo(feature_group_b375763f45dafa25c0a6ac4c8862123e);
+
+
+        var popup_e1c67ffa705f1ead3baa68e38f7e982d = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_3b2fabcb11ea20603198d9fd330e419d = $(`&lt;div id=&quot;html_3b2fabcb11ea20603198d9fd330e419d&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example envelope&lt;/div&gt;`)[0];
+                popup_e1c67ffa705f1ead3baa68e38f7e982d.setContent(html_3b2fabcb11ea20603198d9fd330e419d);
+
+
+
+        polygon_3d618b14c19c74c19bac05dc87d759b9.bindPopup(popup_e1c67ffa705f1ead3baa68e38f7e982d)
+        ;
+
+
+
+
+                feature_group_b375763f45dafa25c0a6ac4c8862123e.addTo(map_9fbb2b66d32a6c59bc53bd98cf31c825);
+
+            var feature_group_d98b3606476dae66ca78f0b2026583ba = L.featureGroup(
+                {}
+            );
+
+
+            var circle_marker_bd0922ed4dd8cecf47fcfe3db8d14866 = L.circleMarker(
+                [49.90640555188366, 8.058830741180385],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;darkred&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;darkred&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_d98b3606476dae66ca78f0b2026583ba);
+
+
+        var popup_7b9ee30a354d58bf191f95746eb13e40 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_0fc6ae5b62c1625784a23b0f0c3003ae = $(`&lt;div id=&quot;html_0fc6ae5b62c1625784a23b0f0c3003ae&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for envelope&lt;/div&gt;`)[0];
+                popup_7b9ee30a354d58bf191f95746eb13e40.setContent(html_0fc6ae5b62c1625784a23b0f0c3003ae);
+
+
+
+        circle_marker_bd0922ed4dd8cecf47fcfe3db8d14866.bindPopup(popup_7b9ee30a354d58bf191f95746eb13e40)
+        ;
+
+
+
+
+            var circle_marker_f18088fb753c68ef4720265534e8e53a = L.circleMarker(
+                [49.437912671445574, 8.329843368360153],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;darkred&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;darkred&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_d98b3606476dae66ca78f0b2026583ba);
+
+
+        var popup_6f68fff8d54bcb5a609b75fdb4c212f3 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_f58a0bb2ec078fd4ba4b2eade631c600 = $(`&lt;div id=&quot;html_f58a0bb2ec078fd4ba4b2eade631c600&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for envelope&lt;/div&gt;`)[0];
+                popup_6f68fff8d54bcb5a609b75fdb4c212f3.setContent(html_f58a0bb2ec078fd4ba4b2eade631c600);
+
+
+
+        circle_marker_f18088fb753c68ef4720265534e8e53a.bindPopup(popup_6f68fff8d54bcb5a609b75fdb4c212f3)
+        ;
+
+
+
+
+            var circle_marker_9c9f2efe900c637fef3b07e4e0115ed4 = L.circleMarker(
+                [49.31036241092251, 8.474916044497274],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;darkred&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;darkred&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_d98b3606476dae66ca78f0b2026583ba);
+
+
+        var popup_2eceedfa3fdf926b7b78e48a2e364724 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_99549527b218c1473dfddb64d434d120 = $(`&lt;div id=&quot;html_99549527b218c1473dfddb64d434d120&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for envelope&lt;/div&gt;`)[0];
+                popup_2eceedfa3fdf926b7b78e48a2e364724.setContent(html_99549527b218c1473dfddb64d434d120);
+
+
+
+        circle_marker_9c9f2efe900c637fef3b07e4e0115ed4.bindPopup(popup_2eceedfa3fdf926b7b78e48a2e364724)
+        ;
+
+
+
+
+            var circle_marker_a5db47ffe26046e966439df65c3b52b0 = L.circleMarker(
+                [49.625270333847304, 8.091818401018807],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;darkred&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;darkred&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_d98b3606476dae66ca78f0b2026583ba);
+
+
+        var popup_d3bcb7ac84cf63523a18b35f92bc6e21 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_2e6ef17175e9bb5a662496809775ea73 = $(`&lt;div id=&quot;html_2e6ef17175e9bb5a662496809775ea73&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for envelope&lt;/div&gt;`)[0];
+                popup_d3bcb7ac84cf63523a18b35f92bc6e21.setContent(html_2e6ef17175e9bb5a662496809775ea73);
+
+
+
+        circle_marker_a5db47ffe26046e966439df65c3b52b0.bindPopup(popup_d3bcb7ac84cf63523a18b35f92bc6e21)
+        ;
+
+
+
+
+            var circle_marker_c8c5746b4db44b481960f04a89a91e40 = L.circleMarker(
+                [49.657126231825096, 8.190573663697435],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;darkred&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;darkred&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_d98b3606476dae66ca78f0b2026583ba);
+
+
+        var popup_1b0b089b0dfcbbc832bf90be5ae7e8fc = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_0739ef3da1db380e3b66ae500b7690d1 = $(`&lt;div id=&quot;html_0739ef3da1db380e3b66ae500b7690d1&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for envelope&lt;/div&gt;`)[0];
+                popup_1b0b089b0dfcbbc832bf90be5ae7e8fc.setContent(html_0739ef3da1db380e3b66ae500b7690d1);
+
+
+
+        circle_marker_c8c5746b4db44b481960f04a89a91e40.bindPopup(popup_1b0b089b0dfcbbc832bf90be5ae7e8fc)
+        ;
+
+
+
+
+            var circle_marker_88c1186a0b0e3e4670d36b52dcf98861 = L.circleMarker(
+                [49.75762567366511, 8.521051090013419],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;darkred&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;darkred&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_d98b3606476dae66ca78f0b2026583ba);
+
+
+        var popup_de18ff90fe954d9b5ce8231b7bc842c9 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_01c7edc331e97932b560324ae71a8079 = $(`&lt;div id=&quot;html_01c7edc331e97932b560324ae71a8079&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for envelope&lt;/div&gt;`)[0];
+                popup_de18ff90fe954d9b5ce8231b7bc842c9.setContent(html_01c7edc331e97932b560324ae71a8079);
+
+
+
+        circle_marker_88c1186a0b0e3e4670d36b52dcf98861.bindPopup(popup_de18ff90fe954d9b5ce8231b7bc842c9)
+        ;
+
+
+
+
+            var circle_marker_367cc4f5149ff44196682f83bb270a89 = L.circleMarker(
+                [49.74074844964193, 8.611479167621816],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;darkred&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;darkred&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_d98b3606476dae66ca78f0b2026583ba);
+
+
+        var popup_710daf875abcc0ad3042038e0d1665c1 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_5365234cdabe8c4285b1d6eb5806500a = $(`&lt;div id=&quot;html_5365234cdabe8c4285b1d6eb5806500a&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for envelope&lt;/div&gt;`)[0];
+                popup_710daf875abcc0ad3042038e0d1665c1.setContent(html_5365234cdabe8c4285b1d6eb5806500a);
+
+
+
+        circle_marker_367cc4f5149ff44196682f83bb270a89.bindPopup(popup_710daf875abcc0ad3042038e0d1665c1)
+        ;
+
+
+
+
+            var circle_marker_8aded23f06e737ed256abf5fc5e043fb = L.circleMarker(
+                [49.419566572029794, 8.333641161315896],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;darkred&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;darkred&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_d98b3606476dae66ca78f0b2026583ba);
+
+
+        var popup_068901698bd9432cc477e25c49fff3cf = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_e934c05bd9110de04f01a58477a0f33e = $(`&lt;div id=&quot;html_e934c05bd9110de04f01a58477a0f33e&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for envelope&lt;/div&gt;`)[0];
+                popup_068901698bd9432cc477e25c49fff3cf.setContent(html_e934c05bd9110de04f01a58477a0f33e);
+
+
+
+        circle_marker_8aded23f06e737ed256abf5fc5e043fb.bindPopup(popup_068901698bd9432cc477e25c49fff3cf)
+        ;
+
+
+
+
+            var circle_marker_edc66c593443ec32ab193b254c571447 = L.circleMarker(
+                [49.36349061611699, 8.23099763330269],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;darkred&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;darkred&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_d98b3606476dae66ca78f0b2026583ba);
+
+
+        var popup_6b90bac5d8c96fb3a3ea569a2d1831ac = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_8f4fefbdfef9b0dd6ae43d5bf06fe277 = $(`&lt;div id=&quot;html_8f4fefbdfef9b0dd6ae43d5bf06fe277&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for envelope&lt;/div&gt;`)[0];
+                popup_6b90bac5d8c96fb3a3ea569a2d1831ac.setContent(html_8f4fefbdfef9b0dd6ae43d5bf06fe277);
+
+
+
+        circle_marker_edc66c593443ec32ab193b254c571447.bindPopup(popup_6b90bac5d8c96fb3a3ea569a2d1831ac)
+        ;
+
+
+
+
+            var circle_marker_88e48d6eebd8fb79922cdda775199355 = L.circleMarker(
+                [49.17000614601233, 8.658940134853918],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;darkred&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;darkred&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_d98b3606476dae66ca78f0b2026583ba);
+
+
+        var popup_ad69eaf85d31f58e554d873130d539da = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_051c6e066dbd84f4165b6b53e76f70d1 = $(`&lt;div id=&quot;html_051c6e066dbd84f4165b6b53e76f70d1&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for envelope&lt;/div&gt;`)[0];
+                popup_ad69eaf85d31f58e554d873130d539da.setContent(html_051c6e066dbd84f4165b6b53e76f70d1);
+
+
+
+        circle_marker_88e48d6eebd8fb79922cdda775199355.bindPopup(popup_ad69eaf85d31f58e554d873130d539da)
+        ;
+
+
+
+
+                feature_group_d98b3606476dae66ca78f0b2026583ba.addTo(map_9fbb2b66d32a6c59bc53bd98cf31c825);
+
+            var layer_control_d6fda70e100eb83b3ab4aa19b9448d13_layers = {
+                base_layers : {
+                    &quot;openstreetmap&quot; : tile_layer_8775891c483d3b0eb505d4ed51073ec3,
+                },
+                overlays :  {
+                    &quot;Example envelope&quot; : feature_group_b375763f45dafa25c0a6ac4c8862123e,
+                    &quot;Example points for envelope&quot; : feature_group_d98b3606476dae66ca78f0b2026583ba,
+                },
+            };
+            let layer_control_d6fda70e100eb83b3ab4aa19b9448d13 = L.control.layers(
+                layer_control_d6fda70e100eb83b3ab4aa19b9448d13_layers.base_layers,
+                layer_control_d6fda70e100eb83b3ab4aa19b9448d13_layers.overlays,
+                {&quot;autoZIndex&quot;: true, &quot;collapsed&quot;: false, &quot;position&quot;: &quot;topright&quot;}
+            ).addTo(map_9fbb2b66d32a6c59bc53bd98cf31c825);
+
+
+&lt;/script&gt;
+&lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div>
+</div>
+</section>
+<section id="Concave-hull-(alpha-shape)">
+<h2>Concave hull (alpha shape)<a class="headerlink" href="#Concave-hull-(alpha-shape)" title="Link to this heading">#</a></h2>
+<p>In some cases the convex hull does not yield good results - this is when the shape of the polygon should be concave instead of convex. The solution is a concave hull that is also called alpha shape. Yet, there is no ready to go, off the shelve solution for this but there are great resources (see: <a class="reference external" href="https://web.archive.org/web/20191207074940/http://blog.thehumangeo.com/2014/05/12/drawing-boundaries-in-python/">https://web.archive.org/web/20191207074940/http://blog.thehumangeo.com/2014/05/12/drawing-boundaries-in-python/</a>, accessed 04.01.2019 or <a class="reference external" href="https://towardsdatascience.com/the-concave-hull-c649795c0f0f">https://towardsdatascience.com/the-concave-hull-c649795c0f0f</a>,
+accessed 29.12.2018).</p>
+</section>
+<section id="Putting-it-together">
+<h2>Putting it together<a class="headerlink" href="#Putting-it-together" title="Link to this heading">#</a></h2>
+<p>Just putting it all together…</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize map</span>
+<span class="n">my_map_global</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">48.2460683</span><span class="p">,</span> <span class="mf">9.26764125</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+
+<span class="c1"># Create a convex hull polygon that contains some points</span>
+<span class="n">list_of_points</span> <span class="o">=</span> <span class="n">randome_points</span><span class="p">(</span>
+    <span class="n">amount</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">LON_min</span><span class="o">=</span><span class="mi">48</span><span class="p">,</span> <span class="n">LON_max</span><span class="o">=</span><span class="mi">49</span><span class="p">,</span> <span class="n">LAT_min</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">LAT_max</span><span class="o">=</span><span class="mi">10</span>
+<span class="p">)</span>
+
+<span class="n">create_convexhull_polygon</span><span class="p">(</span>
+    <span class="n">my_map_global</span><span class="p">,</span>
+    <span class="n">list_of_points</span><span class="p">,</span>
+    <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Example convex hull&quot;</span><span class="p">,</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;lightblue&quot;</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;lightskyblue&quot;</span><span class="p">,</span>
+    <span class="n">weight</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Example convex hull&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">draw_points</span><span class="p">(</span>
+    <span class="n">my_map_global</span><span class="p">,</span>
+    <span class="n">list_of_points</span><span class="p">,</span>
+    <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Example points for convex hull&quot;</span><span class="p">,</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;royalblue&quot;</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;royalblue&quot;</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Example point for convex hull&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Create an envelope polygon that contains some points</span>
+<span class="n">list_of_points</span> <span class="o">=</span> <span class="n">randome_points</span><span class="p">(</span>
+    <span class="n">amount</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">LON_min</span><span class="o">=</span><span class="mf">49.1</span><span class="p">,</span> <span class="n">LON_max</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">LAT_min</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">LAT_max</span><span class="o">=</span><span class="mi">9</span>
+<span class="p">)</span>
+
+<span class="n">create_envelope_polygon</span><span class="p">(</span>
+    <span class="n">my_map_global</span><span class="p">,</span>
+    <span class="n">list_of_points</span><span class="p">,</span>
+    <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Example envelope&quot;</span><span class="p">,</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;indianred&quot;</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+    <span class="n">weight</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Example envelope&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">draw_points</span><span class="p">(</span>
+    <span class="n">my_map_global</span><span class="p">,</span>
+    <span class="n">list_of_points</span><span class="p">,</span>
+    <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Example points for envelope&quot;</span><span class="p">,</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;darkred&quot;</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;darkred&quot;</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Example point for envelope&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Add layer control and show map</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">LayerControl</span><span class="p">(</span><span class="n">collapsed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">my_map_global</span><span class="p">)</span>
+<span class="n">my_map_global</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+
+        &lt;script&gt;
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        &lt;/script&gt;
+
+    &lt;style&gt;html, body {width: 100%;height: 100%;margin: 0;padding: 0;}&lt;/style&gt;
+    &lt;style&gt;#map {position:absolute;top:0;bottom:0;right:0;left:0;}&lt;/style&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-1.12.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
+
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+            &lt;style&gt;
+                #map_9fc239b8b9ec385848d0cc20b3b9a2a2 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            &lt;/style&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+
+
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_9fc239b8b9ec385848d0cc20b3b9a2a2&quot; &gt;&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;script&gt;
+
+
+            var map_9fc239b8b9ec385848d0cc20b3b9a2a2 = L.map(
+                &quot;map_9fc239b8b9ec385848d0cc20b3b9a2a2&quot;,
+                {
+                    center: [48.2460683, 9.26764125],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 7,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+
+
+
+
+            var tile_layer_5cbb73f020714169487910ac804b4144 = L.tileLayer(
+                &quot;https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
+                {&quot;attribution&quot;: &quot;Data by \u0026copy; \u003ca target=\&quot;_blank\&quot; href=\&quot;http://openstreetmap.org\&quot;\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\&quot;_blank\&quot; href=\&quot;http://www.openstreetmap.org/copyright\&quot;\u003eODbL\u003c/a\u003e.&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
+            );
+
+
+                tile_layer_5cbb73f020714169487910ac804b4144.addTo(map_9fc239b8b9ec385848d0cc20b3b9a2a2);
+
+            var feature_group_ca9c3724b15254b8ea10d225b6cff983 = L.featureGroup(
+                {}
+            );
+
+
+            var polygon_6942bce9344a9fb3e10eac8aa26facf7 = L.polygon(
+                [[48.38181002614956, 9.901440153934296], [48.11419335754472, 9.561539150938257], [48.707078811405864, 9.377601616505737], [48.88958722227321, 9.374830687895678]],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;lightblue&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;lightskyblue&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;noClip&quot;: false, &quot;opacity&quot;: 1.0, &quot;smoothFactor&quot;: 1.0, &quot;stroke&quot;: true, &quot;weight&quot;: 5}
+            ).addTo(feature_group_ca9c3724b15254b8ea10d225b6cff983);
+
+
+        var popup_858f3746d95207d080aa4497f6e5d0be = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_dac99b36b617837aceb2770d09820134 = $(`&lt;div id=&quot;html_dac99b36b617837aceb2770d09820134&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example convex hull&lt;/div&gt;`)[0];
+                popup_858f3746d95207d080aa4497f6e5d0be.setContent(html_dac99b36b617837aceb2770d09820134);
+
+
+
+        polygon_6942bce9344a9fb3e10eac8aa26facf7.bindPopup(popup_858f3746d95207d080aa4497f6e5d0be)
+        ;
+
+
+
+
+                feature_group_ca9c3724b15254b8ea10d225b6cff983.addTo(map_9fc239b8b9ec385848d0cc20b3b9a2a2);
+
+            var feature_group_73512f546fb2d14077c6beb9c76fa041 = L.featureGroup(
+                {}
+            );
+
+
+            var circle_marker_dadee888dd5cb15d0427b4ada6bfd53d = L.circleMarker(
+                [48.2673553321383, 9.749681349045243],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;royalblue&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;royalblue&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_73512f546fb2d14077c6beb9c76fa041);
+
+
+        var popup_9d53596441214aebc5c72a3c10c4090b = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_30dd8933f7821ca68387b178a0e18081 = $(`&lt;div id=&quot;html_30dd8933f7821ca68387b178a0e18081&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for convex hull&lt;/div&gt;`)[0];
+                popup_9d53596441214aebc5c72a3c10c4090b.setContent(html_30dd8933f7821ca68387b178a0e18081);
+
+
+
+        circle_marker_dadee888dd5cb15d0427b4ada6bfd53d.bindPopup(popup_9d53596441214aebc5c72a3c10c4090b)
+        ;
+
+
+
+
+            var circle_marker_6df9b220143786c798271cdbac7bb8d7 = L.circleMarker(
+                [48.69050100125773, 9.489049445236704],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;royalblue&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;royalblue&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_73512f546fb2d14077c6beb9c76fa041);
+
+
+        var popup_b9dc19a53685810192010cd3d0372a1a = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_8b9855d9d227405087c46e31128a3fd4 = $(`&lt;div id=&quot;html_8b9855d9d227405087c46e31128a3fd4&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for convex hull&lt;/div&gt;`)[0];
+                popup_b9dc19a53685810192010cd3d0372a1a.setContent(html_8b9855d9d227405087c46e31128a3fd4);
+
+
+
+        circle_marker_6df9b220143786c798271cdbac7bb8d7.bindPopup(popup_b9dc19a53685810192010cd3d0372a1a)
+        ;
+
+
+
+
+            var circle_marker_c5d9c4f4246a873108374ff3ea94636a = L.circleMarker(
+                [48.707078811405864, 9.377601616505737],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;royalblue&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;royalblue&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_73512f546fb2d14077c6beb9c76fa041);
+
+
+        var popup_017e4c26c1b00e235607aabfa4f11eb9 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_8eb38b7fd84410f6985e4a6b5ec46220 = $(`&lt;div id=&quot;html_8eb38b7fd84410f6985e4a6b5ec46220&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for convex hull&lt;/div&gt;`)[0];
+                popup_017e4c26c1b00e235607aabfa4f11eb9.setContent(html_8eb38b7fd84410f6985e4a6b5ec46220);
+
+
+
+        circle_marker_c5d9c4f4246a873108374ff3ea94636a.bindPopup(popup_017e4c26c1b00e235607aabfa4f11eb9)
+        ;
+
+
+
+
+            var circle_marker_cef5639c99c3c64bbc8db24e8d052b4d = L.circleMarker(
+                [48.73947261785049, 9.44503270224271],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;royalblue&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;royalblue&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_73512f546fb2d14077c6beb9c76fa041);
+
+
+        var popup_fdd175ee2ff4cd5d350d758feb6d1de7 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_c7c09bb2bbd6ef91b597e4301ae66fcb = $(`&lt;div id=&quot;html_c7c09bb2bbd6ef91b597e4301ae66fcb&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for convex hull&lt;/div&gt;`)[0];
+                popup_fdd175ee2ff4cd5d350d758feb6d1de7.setContent(html_c7c09bb2bbd6ef91b597e4301ae66fcb);
+
+
+
+        circle_marker_cef5639c99c3c64bbc8db24e8d052b4d.bindPopup(popup_fdd175ee2ff4cd5d350d758feb6d1de7)
+        ;
+
+
+
+
+            var circle_marker_d412d0de67c9529401abcc2135eebfa3 = L.circleMarker(
+                [48.79810824051449, 9.402471726021522],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;royalblue&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;royalblue&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_73512f546fb2d14077c6beb9c76fa041);
+
+
+        var popup_43fa6b44d066bc511364b3444462e531 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_33dde575182f9f85dc59b959db13e774 = $(`&lt;div id=&quot;html_33dde575182f9f85dc59b959db13e774&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for convex hull&lt;/div&gt;`)[0];
+                popup_43fa6b44d066bc511364b3444462e531.setContent(html_33dde575182f9f85dc59b959db13e774);
+
+
+
+        circle_marker_d412d0de67c9529401abcc2135eebfa3.bindPopup(popup_43fa6b44d066bc511364b3444462e531)
+        ;
+
+
+
+
+            var circle_marker_3c87feb02632b9488437731e56f1c264 = L.circleMarker(
+                [48.552047534954845, 9.56934894058602],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;royalblue&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;royalblue&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_73512f546fb2d14077c6beb9c76fa041);
+
+
+        var popup_613a4c3cf96f87cf5282871566157e94 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_f4396a3887f6dc6d41ba444a421035b8 = $(`&lt;div id=&quot;html_f4396a3887f6dc6d41ba444a421035b8&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for convex hull&lt;/div&gt;`)[0];
+                popup_613a4c3cf96f87cf5282871566157e94.setContent(html_f4396a3887f6dc6d41ba444a421035b8);
+
+
+
+        circle_marker_3c87feb02632b9488437731e56f1c264.bindPopup(popup_613a4c3cf96f87cf5282871566157e94)
+        ;
+
+
+
+
+            var circle_marker_4ddcfe206a8450423a8cf70c993220f4 = L.circleMarker(
+                [48.38181002614956, 9.901440153934296],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;royalblue&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;royalblue&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_73512f546fb2d14077c6beb9c76fa041);
+
+
+        var popup_2247ba5748ca2b3f6b7dcb7ee46d2192 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_76338bbc6ce6fa3f556ea82385ea7fa0 = $(`&lt;div id=&quot;html_76338bbc6ce6fa3f556ea82385ea7fa0&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for convex hull&lt;/div&gt;`)[0];
+                popup_2247ba5748ca2b3f6b7dcb7ee46d2192.setContent(html_76338bbc6ce6fa3f556ea82385ea7fa0);
+
+
+
+        circle_marker_4ddcfe206a8450423a8cf70c993220f4.bindPopup(popup_2247ba5748ca2b3f6b7dcb7ee46d2192)
+        ;
+
+
+
+
+            var circle_marker_361fec95e0ec8f53927d763faf35352d = L.circleMarker(
+                [48.88958722227321, 9.374830687895678],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;royalblue&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;royalblue&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_73512f546fb2d14077c6beb9c76fa041);
+
+
+        var popup_465a0086f4507295a9237a2f23480712 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_e600dba77ee55489ac818148171249c6 = $(`&lt;div id=&quot;html_e600dba77ee55489ac818148171249c6&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for convex hull&lt;/div&gt;`)[0];
+                popup_465a0086f4507295a9237a2f23480712.setContent(html_e600dba77ee55489ac818148171249c6);
+
+
+
+        circle_marker_361fec95e0ec8f53927d763faf35352d.bindPopup(popup_465a0086f4507295a9237a2f23480712)
+        ;
+
+
+
+
+            var circle_marker_b295611ccb281c00a3c32beb59c54d54 = L.circleMarker(
+                [48.30572682168266, 9.5914312299332],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;royalblue&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;royalblue&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_73512f546fb2d14077c6beb9c76fa041);
+
+
+        var popup_bf2a6bea12783a750d1e91280f739370 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_c6c9eeb5342b0d77e81419f2f0b11b74 = $(`&lt;div id=&quot;html_c6c9eeb5342b0d77e81419f2f0b11b74&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for convex hull&lt;/div&gt;`)[0];
+                popup_bf2a6bea12783a750d1e91280f739370.setContent(html_c6c9eeb5342b0d77e81419f2f0b11b74);
+
+
+
+        circle_marker_b295611ccb281c00a3c32beb59c54d54.bindPopup(popup_bf2a6bea12783a750d1e91280f739370)
+        ;
+
+
+
+
+            var circle_marker_3bc8ce2f091d965a9b30f433d236650f = L.circleMarker(
+                [48.11419335754472, 9.561539150938257],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;royalblue&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;royalblue&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_73512f546fb2d14077c6beb9c76fa041);
+
+
+        var popup_25193634d5b24ef73c45f9aae2a230fd = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_c6492d6479647c76375801e14b294d39 = $(`&lt;div id=&quot;html_c6492d6479647c76375801e14b294d39&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for convex hull&lt;/div&gt;`)[0];
+                popup_25193634d5b24ef73c45f9aae2a230fd.setContent(html_c6492d6479647c76375801e14b294d39);
+
+
+
+        circle_marker_3bc8ce2f091d965a9b30f433d236650f.bindPopup(popup_25193634d5b24ef73c45f9aae2a230fd)
+        ;
+
+
+
+
+                feature_group_73512f546fb2d14077c6beb9c76fa041.addTo(map_9fc239b8b9ec385848d0cc20b3b9a2a2);
+
+            var feature_group_c36b98e6f581c4e82625ce8754d5ec9f = L.featureGroup(
+                {}
+            );
+
+
+            var polygon_40a7356f20f65847a87f2c11a1442a45 = L.polygon(
+                [[49.139673240940304, 8.785297663827551], [49.823668323009514, 8.785297663827551], [49.823668323009514, 8.019864901443459], [49.139673240940304, 8.019864901443459]],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;indianred&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;noClip&quot;: false, &quot;opacity&quot;: 1.0, &quot;smoothFactor&quot;: 1.0, &quot;stroke&quot;: true, &quot;weight&quot;: 5}
+            ).addTo(feature_group_c36b98e6f581c4e82625ce8754d5ec9f);
+
+
+        var popup_564f04ee21f4e50753e4394447bdd9c4 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_1f5843f81b54650fdbbb13e20167d0f7 = $(`&lt;div id=&quot;html_1f5843f81b54650fdbbb13e20167d0f7&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example envelope&lt;/div&gt;`)[0];
+                popup_564f04ee21f4e50753e4394447bdd9c4.setContent(html_1f5843f81b54650fdbbb13e20167d0f7);
+
+
+
+        polygon_40a7356f20f65847a87f2c11a1442a45.bindPopup(popup_564f04ee21f4e50753e4394447bdd9c4)
+        ;
+
+
+
+
+                feature_group_c36b98e6f581c4e82625ce8754d5ec9f.addTo(map_9fc239b8b9ec385848d0cc20b3b9a2a2);
+
+            var feature_group_26ca79e9c85b184ead88fb5c1f474465 = L.featureGroup(
+                {}
+            );
+
+
+            var circle_marker_8c3bc1bf96d784c90f6534e1778746b1 = L.circleMarker(
+                [49.423091194501765, 8.713147609951953],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;darkred&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;darkred&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_26ca79e9c85b184ead88fb5c1f474465);
+
+
+        var popup_bca5d2ffaebc1bea13874fe354b4b4b9 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_96b214cae9585fb97c85ee9ebf96cddf = $(`&lt;div id=&quot;html_96b214cae9585fb97c85ee9ebf96cddf&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for envelope&lt;/div&gt;`)[0];
+                popup_bca5d2ffaebc1bea13874fe354b4b4b9.setContent(html_96b214cae9585fb97c85ee9ebf96cddf);
+
+
+
+        circle_marker_8c3bc1bf96d784c90f6534e1778746b1.bindPopup(popup_bca5d2ffaebc1bea13874fe354b4b4b9)
+        ;
+
+
+
+
+            var circle_marker_a976a65f7e98951d65730c8a2e98c730 = L.circleMarker(
+                [49.73024403146108, 8.725220096128787],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;darkred&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;darkred&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_26ca79e9c85b184ead88fb5c1f474465);
+
+
+        var popup_3ce4c370506814f4ccdfa2fa9287d1af = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_57cd4d90d66db5fa8f68625c108f547f = $(`&lt;div id=&quot;html_57cd4d90d66db5fa8f68625c108f547f&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for envelope&lt;/div&gt;`)[0];
+                popup_3ce4c370506814f4ccdfa2fa9287d1af.setContent(html_57cd4d90d66db5fa8f68625c108f547f);
+
+
+
+        circle_marker_a976a65f7e98951d65730c8a2e98c730.bindPopup(popup_3ce4c370506814f4ccdfa2fa9287d1af)
+        ;
+
+
+
+
+            var circle_marker_448c0321f07092ea961bddb16f1fd7a3 = L.circleMarker(
+                [49.15451973575839, 8.625805821094254],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;darkred&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;darkred&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_26ca79e9c85b184ead88fb5c1f474465);
+
+
+        var popup_0fec75723efbe5e4dfb36540d64f32f1 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_72ba97c52e30d34cc641720052969170 = $(`&lt;div id=&quot;html_72ba97c52e30d34cc641720052969170&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for envelope&lt;/div&gt;`)[0];
+                popup_0fec75723efbe5e4dfb36540d64f32f1.setContent(html_72ba97c52e30d34cc641720052969170);
+
+
+
+        circle_marker_448c0321f07092ea961bddb16f1fd7a3.bindPopup(popup_0fec75723efbe5e4dfb36540d64f32f1)
+        ;
+
+
+
+
+            var circle_marker_da041cf0f094a2171dac0b926f03d62a = L.circleMarker(
+                [49.57234170090972, 8.13801363638908],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;darkred&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;darkred&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_26ca79e9c85b184ead88fb5c1f474465);
+
+
+        var popup_972ac8a47ecf66ce97eb94413da5b301 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_90c94dfec8e219d7de31ad9bee1756c3 = $(`&lt;div id=&quot;html_90c94dfec8e219d7de31ad9bee1756c3&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for envelope&lt;/div&gt;`)[0];
+                popup_972ac8a47ecf66ce97eb94413da5b301.setContent(html_90c94dfec8e219d7de31ad9bee1756c3);
+
+
+
+        circle_marker_da041cf0f094a2171dac0b926f03d62a.bindPopup(popup_972ac8a47ecf66ce97eb94413da5b301)
+        ;
+
+
+
+
+            var circle_marker_4b4703b0b74a093db15cd17603e1a9d6 = L.circleMarker(
+                [49.47211527913042, 8.785297663827551],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;darkred&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;darkred&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_26ca79e9c85b184ead88fb5c1f474465);
+
+
+        var popup_8fb80fcd3cd7bcedb5383a861036e006 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_f405fa1f655bba86e3db12b4c1017457 = $(`&lt;div id=&quot;html_f405fa1f655bba86e3db12b4c1017457&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for envelope&lt;/div&gt;`)[0];
+                popup_8fb80fcd3cd7bcedb5383a861036e006.setContent(html_f405fa1f655bba86e3db12b4c1017457);
+
+
+
+        circle_marker_4b4703b0b74a093db15cd17603e1a9d6.bindPopup(popup_8fb80fcd3cd7bcedb5383a861036e006)
+        ;
+
+
+
+
+            var circle_marker_1f148775e0436cf77ba55ee83886d6e3 = L.circleMarker(
+                [49.139673240940304, 8.71025092728357],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;darkred&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;darkred&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_26ca79e9c85b184ead88fb5c1f474465);
+
+
+        var popup_358b0d515fa81e61784221add28b8953 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_c46f2ed6bd8384ba192c1614e04d9a80 = $(`&lt;div id=&quot;html_c46f2ed6bd8384ba192c1614e04d9a80&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for envelope&lt;/div&gt;`)[0];
+                popup_358b0d515fa81e61784221add28b8953.setContent(html_c46f2ed6bd8384ba192c1614e04d9a80);
+
+
+
+        circle_marker_1f148775e0436cf77ba55ee83886d6e3.bindPopup(popup_358b0d515fa81e61784221add28b8953)
+        ;
+
+
+
+
+            var circle_marker_e7449180e90239c240d6821f7ffeb547 = L.circleMarker(
+                [49.466718560478874, 8.767004167636577],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;darkred&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;darkred&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_26ca79e9c85b184ead88fb5c1f474465);
+
+
+        var popup_a3678abdc8e381e4a709e8172f9d4f3b = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_861d6483a49afdd9d70a5ba85bb7f640 = $(`&lt;div id=&quot;html_861d6483a49afdd9d70a5ba85bb7f640&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for envelope&lt;/div&gt;`)[0];
+                popup_a3678abdc8e381e4a709e8172f9d4f3b.setContent(html_861d6483a49afdd9d70a5ba85bb7f640);
+
+
+
+        circle_marker_e7449180e90239c240d6821f7ffeb547.bindPopup(popup_a3678abdc8e381e4a709e8172f9d4f3b)
+        ;
+
+
+
+
+            var circle_marker_1f7a367d1caea126f188d399a7a3f576 = L.circleMarker(
+                [49.52636995409312, 8.019864901443459],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;darkred&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;darkred&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_26ca79e9c85b184ead88fb5c1f474465);
+
+
+        var popup_19bff127f30a3b92e94d7ee52f689b5d = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_48ba1d4a079df63862d99f4bbece4b7d = $(`&lt;div id=&quot;html_48ba1d4a079df63862d99f4bbece4b7d&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for envelope&lt;/div&gt;`)[0];
+                popup_19bff127f30a3b92e94d7ee52f689b5d.setContent(html_48ba1d4a079df63862d99f4bbece4b7d);
+
+
+
+        circle_marker_1f7a367d1caea126f188d399a7a3f576.bindPopup(popup_19bff127f30a3b92e94d7ee52f689b5d)
+        ;
+
+
+
+
+            var circle_marker_d2603a02bac6c908d00e582c93f6fb7a = L.circleMarker(
+                [49.823668323009514, 8.665593260919355],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;darkred&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;darkred&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_26ca79e9c85b184ead88fb5c1f474465);
+
+
+        var popup_64e6cd4875687273f3efc4ee3f406bd8 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_9e05c5714603b2405b1bb2667d3430f1 = $(`&lt;div id=&quot;html_9e05c5714603b2405b1bb2667d3430f1&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for envelope&lt;/div&gt;`)[0];
+                popup_64e6cd4875687273f3efc4ee3f406bd8.setContent(html_9e05c5714603b2405b1bb2667d3430f1);
+
+
+
+        circle_marker_d2603a02bac6c908d00e582c93f6fb7a.bindPopup(popup_64e6cd4875687273f3efc4ee3f406bd8)
+        ;
+
+
+
+
+            var circle_marker_0a24a0f1f6e3f4b2e4818d0cdf2d360f = L.circleMarker(
+                [49.19125328713405, 8.747156484338877],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;darkred&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;darkred&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 1, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(feature_group_26ca79e9c85b184ead88fb5c1f474465);
+
+
+        var popup_b737269b02a63647e0ba6172be075b9f = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_5ea4f1524caf4dd5ac123eb720fcdce0 = $(`&lt;div id=&quot;html_5ea4f1524caf4dd5ac123eb720fcdce0&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Example point for envelope&lt;/div&gt;`)[0];
+                popup_b737269b02a63647e0ba6172be075b9f.setContent(html_5ea4f1524caf4dd5ac123eb720fcdce0);
+
+
+
+        circle_marker_0a24a0f1f6e3f4b2e4818d0cdf2d360f.bindPopup(popup_b737269b02a63647e0ba6172be075b9f)
+        ;
+
+
+
+
+                feature_group_26ca79e9c85b184ead88fb5c1f474465.addTo(map_9fc239b8b9ec385848d0cc20b3b9a2a2);
+
+            var layer_control_8761ea5911d338bdca65605ec08cbb93_layers = {
+                base_layers : {
+                    &quot;openstreetmap&quot; : tile_layer_5cbb73f020714169487910ac804b4144,
+                },
+                overlays :  {
+                    &quot;Example convex hull&quot; : feature_group_ca9c3724b15254b8ea10d225b6cff983,
+                    &quot;Example points for convex hull&quot; : feature_group_73512f546fb2d14077c6beb9c76fa041,
+                    &quot;Example envelope&quot; : feature_group_c36b98e6f581c4e82625ce8754d5ec9f,
+                    &quot;Example points for envelope&quot; : feature_group_26ca79e9c85b184ead88fb5c1f474465,
+                },
+            };
+            let layer_control_8761ea5911d338bdca65605ec08cbb93 = L.control.layers(
+                layer_control_8761ea5911d338bdca65605ec08cbb93_layers.base_layers,
+                layer_control_8761ea5911d338bdca65605ec08cbb93_layers.overlays,
+                {&quot;autoZIndex&quot;: true, &quot;collapsed&quot;: false, &quot;position&quot;: &quot;topright&quot;}
+            ).addTo(map_9fc239b8b9ec385848d0cc20b3b9a2a2);
+
+
+&lt;/script&gt;
+&lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div>
+</div>
+</section>
+<section id="Sources:">
+<h2>Sources:<a class="headerlink" href="#Sources:" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://web.archive.org/web/20200222150431/http://blog.yhat.com/posts/interactive-geospatial-analysis.html">https://web.archive.org/web/20200222150431/http://blog.yhat.com/posts/interactive-geospatial-analysis.html</a>, accessed 28.12.2018</p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy-0.19.0/reference/generated/scipy.spatial.ConvexHull.html">https://docs.scipy.org/doc/scipy-0.19.0/reference/generated/scipy.spatial.ConvexHull.html</a>, accessed 29.12.2018</p></li>
+<li><p><a class="reference external" href="https://medium.com/&#64;vworri/simple-geospacial-mapping-with-geopandas-and-the-usual-suspects-77f46d40e807">https://medium.com/&#64;vworri/simple-geospacial-mapping-with-geopandas-and-the-usual-suspects-77f46d40e807</a>, accessed 29.12.2018</p></li>
+<li><p><a class="reference external" href="https://towardsdatascience.com/the-concave-hull-c649795c0f0f">https://towardsdatascience.com/the-concave-hull-c649795c0f0f</a>, accessed 29.12.2018</p></li>
+<li><p><a class="reference external" href="https://web.archive.org/web/20191207074940/http://blog.thehumangeo.com/2014/05/12/drawing-boundaries-in-python/">https://web.archive.org/web/20191207074940/http://blog.thehumangeo.com/2014/05/12/drawing-boundaries-in-python/</a>, accessed 04.01.2019</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="piechart_icons.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Piechart icons</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../reference.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">API reference</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Helpers">Helpers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Convex-hull">Convex hull</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Envelope">Envelope</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Concave-hull-(alpha-shape)">Concave hull (alpha shape)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Putting-it-together">Putting it together</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Sources:">Sources:</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div class="tocsection sourcelink">
+    <a href="../_sources/advanced_guide/polygons_from_list_of_points.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item"><!-- This will display the version of the docs -->
+Folium version 0.1.dev1.dev+g3cabb5a</div>
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2013, Rob Story.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.5.
+    <br/>
+  </p>
+</div>
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

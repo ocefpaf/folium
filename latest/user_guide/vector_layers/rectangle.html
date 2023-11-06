@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Rectangle &#8212; Folium 0.1.dev1+g57e8eae documentation</title>
+    <title>Rectangle &#8212; Folium 0.1.dev1+gee8da7b documentation</title>
   
   
   
@@ -18,12 +18,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -33,11 +33,11 @@
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=924e9346" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
-    <script src="../../_static/documentation_options.js?v=e7365483"></script>
+    <script src="../../_static/documentation_options.js?v=fefc821f"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -45,7 +45,7 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/vector_layers/rectangle';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.14.1';
+        DOCUMENTATION_OPTIONS.theme_version = '0.14.3';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://python-visualization.github.io/folium/latest/_static/switcher.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'latest';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
@@ -124,13 +124,14 @@
   
   
   
+  
     
     
       
     
     
-    <img src="../../_static/folium_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/folium_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/folium_logo.png" class="logo__image only-light" alt=""/>
+    <script>document.write(`<img src="../../_static/folium_logo.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
     <p class="title logo__title">Folium</p>
@@ -141,12 +142,21 @@
 <script>
 document.write(`
   <div class="version-switcher__container dropdown">
-    <button id="versionswitcherbutton" type="button" role="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="listbox" aria-controls="versionswitcherlist" aria-label="Version switcher list">
+    <button id="pst-version-switcher-button-2"
+      type="button"
+      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-2"
+      aria-label="Version switcher list"
+    >
       Choose version  <!-- this text may get changed later by javascript -->
       <span class="caret"></span>
     </button>
-    <div id="versionswitcherlist" class="version-switcher__menu dropdown-menu list-group-flush py-0" role="listbox" aria-labelledby="versionswitcherbutton">
-    <!-- dropdown will be populated by javascript on page load -->
+    <div id="pst-version-switcher-list-2"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-2">
+      <!-- dropdown will be populated by javascript on page load -->
     </div>
   </div>
 `);
@@ -568,7 +578,7 @@ document.write(`
     &lt;style&gt;html, body {width: 100%;height: 100%;margin: 0;padding: 0;}&lt;/style&gt;
     &lt;style&gt;#map {position:absolute;top:0;bottom:0;right:0;left:0;}&lt;/style&gt;
     &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
-    &lt;script src=&quot;https://code.jquery.com/jquery-1.12.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
@@ -581,7 +591,7 @@ document.write(`
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_e2f495f8d1d6dcdadc6b53e41d713d9d {
+                #map_064c559639a50e23f59aea2a2790193e {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -595,14 +605,14 @@ document.write(`
 &lt;body&gt;
 
 
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_e2f495f8d1d6dcdadc6b53e41d713d9d&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_064c559639a50e23f59aea2a2790193e&quot; &gt;&lt;/div&gt;
 
 &lt;/body&gt;
 &lt;script&gt;
 
 
-            var map_e2f495f8d1d6dcdadc6b53e41d713d9d = L.map(
-                &quot;map_e2f495f8d1d6dcdadc6b53e41d713d9d&quot;,
+            var map_064c559639a50e23f59aea2a2790193e = L.map(
+                &quot;map_064c559639a50e23f59aea2a2790193e&quot;,
                 {
                     center: [35.685, 139.76],
                     crs: L.CRS.EPSG3857,
@@ -616,36 +626,36 @@ document.write(`
 
 
 
-            var tile_layer_5411152f287605f288ea18edf656e33f = L.tileLayer(
+            var tile_layer_14f4f96620f50a98940c469c52556de1 = L.tileLayer(
                 &quot;https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
                 {&quot;attribution&quot;: &quot;Data by \u0026copy; \u003ca target=\&quot;_blank\&quot; href=\&quot;http://openstreetmap.org\&quot;\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\&quot;_blank\&quot; href=\&quot;http://www.openstreetmap.org/copyright\&quot;\u003eODbL\u003c/a\u003e.&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
             );
 
 
-                tile_layer_5411152f287605f288ea18edf656e33f.addTo(map_e2f495f8d1d6dcdadc6b53e41d713d9d);
+                tile_layer_14f4f96620f50a98940c469c52556de1.addTo(map_064c559639a50e23f59aea2a2790193e);
 
-            var rectangle_351ddc241654d21e4c05c190cfe82961 = L.rectangle(
+            var rectangle_441fe6775b061aaa00ae3fa1a3669114 = L.rectangle(
                 [[35.681, 139.766], [35.691, 139.776]],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;blue&quot;, &quot;dashArray&quot;: &quot;5, 5&quot;, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;noClip&quot;: false, &quot;opacity&quot;: 1.0, &quot;smoothFactor&quot;: 1.0, &quot;stroke&quot;: true, &quot;weight&quot;: 5}
-            ).addTo(map_e2f495f8d1d6dcdadc6b53e41d713d9d);
+            ).addTo(map_064c559639a50e23f59aea2a2790193e);
 
 
-        var popup_ca310dea82e8bc1db6befab9c8ba0aca = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
-
-
-
-                var html_75efa26942c766989ba92f18490a8756 = $(`&lt;div id=&quot;html_75efa26942c766989ba92f18490a8756&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Tokyo, Japan&lt;/div&gt;`)[0];
-                popup_ca310dea82e8bc1db6befab9c8ba0aca.setContent(html_75efa26942c766989ba92f18490a8756);
+        var popup_181b1a05166bd9ba6d6816ac69e636d1 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
 
 
-        rectangle_351ddc241654d21e4c05c190cfe82961.bindPopup(popup_ca310dea82e8bc1db6befab9c8ba0aca)
+                var html_af3250bb3c7c34172c4ede6332ff1629 = $(`&lt;div id=&quot;html_af3250bb3c7c34172c4ede6332ff1629&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Tokyo, Japan&lt;/div&gt;`)[0];
+                popup_181b1a05166bd9ba6d6816ac69e636d1.setContent(html_af3250bb3c7c34172c4ede6332ff1629);
+
+
+
+        rectangle_441fe6775b061aaa00ae3fa1a3669114.bindPopup(popup_181b1a05166bd9ba6d6816ac69e636d1)
         ;
 
 
 
 
-            rectangle_351ddc241654d21e4c05c190cfe82961.bindTooltip(
+            rectangle_441fe6775b061aaa00ae3fa1a3669114.bindTooltip(
                 `&lt;div&gt;
                      &lt;strong&gt;Click me!&lt;/strong&gt;
                  &lt;/div&gt;`,
@@ -653,28 +663,28 @@ document.write(`
             );
 
 
-            var rectangle_2362d8d92c8dc1d354b4858bc8d899bc = L.rectangle(
+            var rectangle_da2739e0cea1f668f95ce3670470335f = L.rectangle(
                 [[35.681, 139.754], [35.691, 139.764]],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;blue&quot;, &quot;dashArray&quot;: &quot;5, 10&quot;, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;mitter&quot;, &quot;noClip&quot;: false, &quot;opacity&quot;: 1.0, &quot;smoothFactor&quot;: 1.0, &quot;stroke&quot;: true, &quot;weight&quot;: 5}
-            ).addTo(map_e2f495f8d1d6dcdadc6b53e41d713d9d);
+            ).addTo(map_064c559639a50e23f59aea2a2790193e);
 
 
-        var popup_c781762715ce88799963dc3d415951a2 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
-
-
-
-                var html_e6c6d7f0cd3e6ddb62211f906d03ff8e = $(`&lt;div id=&quot;html_e6c6d7f0cd3e6ddb62211f906d03ff8e&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Tokyo, Japan&lt;/div&gt;`)[0];
-                popup_c781762715ce88799963dc3d415951a2.setContent(html_e6c6d7f0cd3e6ddb62211f906d03ff8e);
+        var popup_7937ca680019991ec466aa2c00b16b1e = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
 
 
-        rectangle_2362d8d92c8dc1d354b4858bc8d899bc.bindPopup(popup_c781762715ce88799963dc3d415951a2)
+                var html_17c68cb7b1237f4cbd953ecd16a980c8 = $(`&lt;div id=&quot;html_17c68cb7b1237f4cbd953ecd16a980c8&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Tokyo, Japan&lt;/div&gt;`)[0];
+                popup_7937ca680019991ec466aa2c00b16b1e.setContent(html_17c68cb7b1237f4cbd953ecd16a980c8);
+
+
+
+        rectangle_da2739e0cea1f668f95ce3670470335f.bindPopup(popup_7937ca680019991ec466aa2c00b16b1e)
         ;
 
 
 
 
-            rectangle_2362d8d92c8dc1d354b4858bc8d899bc.bindTooltip(
+            rectangle_da2739e0cea1f668f95ce3670470335f.bindTooltip(
                 `&lt;div&gt;
                      &lt;strong&gt;Click me!&lt;/strong&gt;
                  &lt;/div&gt;`,
@@ -682,28 +692,28 @@ document.write(`
             );
 
 
-            var rectangle_eef3b2a7c6b237494bf69f4a295fd4c8 = L.rectangle(
+            var rectangle_815a954f602aca8482f71b81704c8917 = L.rectangle(
                 [[35.681, 139.742], [35.691, 139.7522]],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;blue&quot;, &quot;dashArray&quot;: &quot;15, 10, 5, 10, 15&quot;, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;bevel&quot;, &quot;noClip&quot;: false, &quot;opacity&quot;: 1.0, &quot;smoothFactor&quot;: 1.0, &quot;stroke&quot;: true, &quot;weight&quot;: 5}
-            ).addTo(map_e2f495f8d1d6dcdadc6b53e41d713d9d);
+            ).addTo(map_064c559639a50e23f59aea2a2790193e);
 
 
-        var popup_d8b0a2c7b54b6650aa39632a3bef1fb1 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
-
-
-
-                var html_cb202da10d92fa748be1ebcf69126928 = $(`&lt;div id=&quot;html_cb202da10d92fa748be1ebcf69126928&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Tokyo, Japan&lt;/div&gt;`)[0];
-                popup_d8b0a2c7b54b6650aa39632a3bef1fb1.setContent(html_cb202da10d92fa748be1ebcf69126928);
+        var popup_eaa6f8c37e1e8de8f680473b6a71dc6c = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
 
 
-        rectangle_eef3b2a7c6b237494bf69f4a295fd4c8.bindPopup(popup_d8b0a2c7b54b6650aa39632a3bef1fb1)
+                var html_5e8dbe2a1faee5437b7742daa71022f8 = $(`&lt;div id=&quot;html_5e8dbe2a1faee5437b7742daa71022f8&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Tokyo, Japan&lt;/div&gt;`)[0];
+                popup_eaa6f8c37e1e8de8f680473b6a71dc6c.setContent(html_5e8dbe2a1faee5437b7742daa71022f8);
+
+
+
+        rectangle_815a954f602aca8482f71b81704c8917.bindPopup(popup_eaa6f8c37e1e8de8f680473b6a71dc6c)
         ;
 
 
 
 
-            rectangle_eef3b2a7c6b237494bf69f4a295fd4c8.bindTooltip(
+            rectangle_815a954f602aca8482f71b81704c8917.bindTooltip(
                 `&lt;div&gt;
                      &lt;strong&gt;Click me!&lt;/strong&gt;
                  &lt;/div&gt;`,
@@ -773,8 +783,8 @@ document.write(`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -782,7 +792,7 @@ document.write(`
     <div class="footer-items__start">
       
         <div class="footer-item"><!-- This will display the version of the docs -->
-Folium version 0.1.dev1.dev+g57e8eae</div>
+Folium version 0.1.dev1.dev+gee8da7b</div>
       
         <div class="footer-item">
   <p class="copyright">
@@ -801,7 +811,7 @@ Folium version 0.1.dev1.dev+g57e8eae</div>
 </div>
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.3.
 </p></div>
       
     </div>
@@ -811,7 +821,7 @@ Folium version 0.1.dev1.dev+g57e8eae</div>
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.3.
 </p></div>
       
     </div>

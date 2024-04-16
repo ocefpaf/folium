@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Icons &#8212; Folium 0.1.dev1+g12b8807 documentation</title>
+    <title>Icons &#8212; Folium 0.1.dev1+g3ccc47c documentation</title>
   
   
   
@@ -37,7 +37,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../../_static/documentation_options.js?v=945e5ea2"></script>
+    <script src="../../_static/documentation_options.js?v=c76abed4"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -433,7 +433,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../plugins/geocoder.html">Geocoder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../plugins/grouped_layer_control.html">GroupedLayerControl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../plugins/heatmap.html">Heatmap</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../plugins/heatmap_with_time.html">HeatMapWithTime Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugins/heatmap_with_time.html">HeatMapWithTime</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../plugins/locate_control.html">LocateControl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../plugins/marker_cluster.html">MarkerCluster</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../plugins/mini_map.html">MiniMap</a></li>
@@ -442,15 +442,17 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../plugins/pattern.html">Pattern plugins</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../plugins/polyline_offset.html">PolylineOffset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../plugins/polyline_textpath.html">PolyLineTextPath</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../plugins/realtime.html">Realtime plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugins/realtime.html">Realtime</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../plugins/scroll_zoom_toggler.html">ScrollZoomToggler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../plugins/search.html">Search</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../plugins/semi_circle.html">SemiCircle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../plugins/side_by_side_layers.html">SideBySideLayers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../plugins/tag_filter_button.html">TagFilterButton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../plugins/terminator.html">Terminator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugins/timeline.html">Timeline and TimelineSlider</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../plugins/timeslider_choropleth.html">TimeSliderChoropleth</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../plugins/timestamped_geojson.html">TimestampedGeoJson</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugins/treelayercontrol.html">TreeLayerControl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../plugins/vector_tiles.html">Vector tiles using VectorGridProtobuf</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../plugins/WmsTimeDimension.html">TimestampedWmsTileLayers</a></li>
 </ul>
@@ -567,7 +569,7 @@ document.write(`
     &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css&quot;/&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
@@ -575,7 +577,7 @@ document.write(`
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_5f65afefae73a74a92169f170dc2dd0b {
+                #map_0f6f8aa6e4da70c8a2871b836f000217 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -589,14 +591,14 @@ document.write(`
 &lt;body&gt;
 
 
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_5f65afefae73a74a92169f170dc2dd0b&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_0f6f8aa6e4da70c8a2871b836f000217&quot; &gt;&lt;/div&gt;
 
 &lt;/body&gt;
 &lt;script&gt;
 
 
-            var map_5f65afefae73a74a92169f170dc2dd0b = L.map(
-                &quot;map_5f65afefae73a74a92169f170dc2dd0b&quot;,
+            var map_0f6f8aa6e4da70c8a2871b836f000217 = L.map(
+                &quot;map_0f6f8aa6e4da70c8a2871b836f000217&quot;,
                 {
                     center: [41.0, -71.0],
                     crs: L.CRS.EPSG3857,
@@ -610,28 +612,28 @@ document.write(`
 
 
 
-            var tile_layer_1f9dae4fb0f60d5f28197f646b6c7103 = L.tileLayer(
+            var tile_layer_087c6f7b255c1e5eebd6b9cf9c254ca2 = L.tileLayer(
                 &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
                 {&quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 19, &quot;maxZoom&quot;: 19, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
             );
 
 
-            tile_layer_1f9dae4fb0f60d5f28197f646b6c7103.addTo(map_5f65afefae73a74a92169f170dc2dd0b);
+            tile_layer_087c6f7b255c1e5eebd6b9cf9c254ca2.addTo(map_0f6f8aa6e4da70c8a2871b836f000217);
 
 
-            var marker_11eda01e9282ad6332c857b2c939a4a1 = L.marker(
+            var marker_5b17e422e94c3334c3f845f8e8043577 = L.marker(
                 [41.0, -72.0],
                 {}
-            ).addTo(map_5f65afefae73a74a92169f170dc2dd0b);
+            ).addTo(map_0f6f8aa6e4da70c8a2871b836f000217);
 
 
-            var icon_fa5450328bab4f8a4d07e133bfdb7fda = L.AwesomeMarkers.icon(
+            var icon_330258e0f18887df782feb02c2fb0bfa = L.AwesomeMarkers.icon(
                 {&quot;extraClasses&quot;: &quot;fa-rotate-180&quot;, &quot;icon&quot;: &quot;arrow-up&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;green&quot;, &quot;prefix&quot;: &quot;fa&quot;}
             );
-            marker_11eda01e9282ad6332c857b2c939a4a1.setIcon(icon_fa5450328bab4f8a4d07e133bfdb7fda);
+            marker_5b17e422e94c3334c3f845f8e8043577.setIcon(icon_330258e0f18887df782feb02c2fb0bfa);
 
 
-            marker_11eda01e9282ad6332c857b2c939a4a1.bindTooltip(
+            marker_5b17e422e94c3334c3f845f8e8043577.bindTooltip(
                 `&lt;div&gt;
                      180
                  &lt;/div&gt;`,
@@ -639,19 +641,19 @@ document.write(`
             );
 
 
-            var marker_87d28f41bb58a41ea2aeff1ae978fb60 = L.marker(
+            var marker_5d8099e3b37de38fb02e5c90fb062124 = L.marker(
                 [41.0, -75.0],
                 {}
-            ).addTo(map_5f65afefae73a74a92169f170dc2dd0b);
+            ).addTo(map_0f6f8aa6e4da70c8a2871b836f000217);
 
 
-            var icon_b92321246789c3c0025a9078f5f537b5 = L.AwesomeMarkers.icon(
+            var icon_c86bd333433c06459d6aa060dbea46f4 = L.AwesomeMarkers.icon(
                 {&quot;extraClasses&quot;: &quot;fa-rotate-45&quot;, &quot;icon&quot;: &quot;arrow-up&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;green&quot;, &quot;prefix&quot;: &quot;fa&quot;}
             );
-            marker_87d28f41bb58a41ea2aeff1ae978fb60.setIcon(icon_b92321246789c3c0025a9078f5f537b5);
+            marker_5d8099e3b37de38fb02e5c90fb062124.setIcon(icon_c86bd333433c06459d6aa060dbea46f4);
 
 
-            marker_87d28f41bb58a41ea2aeff1ae978fb60.bindTooltip(
+            marker_5d8099e3b37de38fb02e5c90fb062124.bindTooltip(
                 `&lt;div&gt;
                      45
                  &lt;/div&gt;`,
@@ -659,19 +661,19 @@ document.write(`
             );
 
 
-            var marker_2d3cea3c0c819191c55618a72309b50e = L.marker(
+            var marker_76140232e508fac5f329c8ea8aed7663 = L.marker(
                 [41.0, -78.0],
                 {}
-            ).addTo(map_5f65afefae73a74a92169f170dc2dd0b);
+            ).addTo(map_0f6f8aa6e4da70c8a2871b836f000217);
 
 
-            var icon_e86e5370abf5d0539aa1222c6eb58256 = L.AwesomeMarkers.icon(
+            var icon_ee7b7551bb056cc5d4684fe549823df2 = L.AwesomeMarkers.icon(
                 {&quot;extraClasses&quot;: &quot;fa-rotate-90&quot;, &quot;icon&quot;: &quot;arrow-up&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;green&quot;, &quot;prefix&quot;: &quot;fa&quot;}
             );
-            marker_2d3cea3c0c819191c55618a72309b50e.setIcon(icon_e86e5370abf5d0539aa1222c6eb58256);
+            marker_76140232e508fac5f329c8ea8aed7663.setIcon(icon_ee7b7551bb056cc5d4684fe549823df2);
 
 
-            marker_2d3cea3c0c819191c55618a72309b50e.bindTooltip(
+            marker_76140232e508fac5f329c8ea8aed7663.bindTooltip(
                 `&lt;div&gt;
                      90
                  &lt;/div&gt;`,
@@ -736,7 +738,7 @@ document.write(`
     &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css&quot;/&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
@@ -744,7 +746,7 @@ document.write(`
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_b72a1fc07d65439a6ab0ddda597e00ef {
+                #map_ab7398e03e19547cda2e7ea271d84663 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -758,14 +760,14 @@ document.write(`
 &lt;body&gt;
 
 
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_b72a1fc07d65439a6ab0ddda597e00ef&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_ab7398e03e19547cda2e7ea271d84663&quot; &gt;&lt;/div&gt;
 
 &lt;/body&gt;
 &lt;script&gt;
 
 
-            var map_b72a1fc07d65439a6ab0ddda597e00ef = L.map(
-                &quot;map_b72a1fc07d65439a6ab0ddda597e00ef&quot;,
+            var map_ab7398e03e19547cda2e7ea271d84663 = L.map(
+                &quot;map_ab7398e03e19547cda2e7ea271d84663&quot;,
                 {
                     center: [45.3288, -121.6625],
                     crs: L.CRS.EPSG3857,
@@ -779,35 +781,35 @@ document.write(`
 
 
 
-            var tile_layer_babc3415bc66e267c0321e098d1ad324 = L.tileLayer(
+            var tile_layer_87d331d01bc967cbe044a6ce475bc3da = L.tileLayer(
                 &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
                 {&quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 19, &quot;maxZoom&quot;: 19, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
             );
 
 
-            tile_layer_babc3415bc66e267c0321e098d1ad324.addTo(map_b72a1fc07d65439a6ab0ddda597e00ef);
+            tile_layer_87d331d01bc967cbe044a6ce475bc3da.addTo(map_ab7398e03e19547cda2e7ea271d84663);
 
 
-            var marker_8d4bdeb4548d12ec3b5146671e283759 = L.marker(
+            var marker_653be412e3a2b2c3794bcacc57037972 = L.marker(
                 [45.3288, -121.6625],
                 {}
-            ).addTo(map_b72a1fc07d65439a6ab0ddda597e00ef);
+            ).addTo(map_ab7398e03e19547cda2e7ea271d84663);
 
 
-        var custom_icon_1b08bccd04efb9a0a326e5aa42548828 = L.icon({&quot;iconAnchor&quot;: [22, 94], &quot;iconSize&quot;: [38, 95], &quot;iconUrl&quot;: &quot;https://leafletjs.com/examples/custom-icons/leaf-red.png&quot;, &quot;popupAnchor&quot;: [-3, -76], &quot;shadowAnchor&quot;: [4, 62], &quot;shadowSize&quot;: [50, 64], &quot;shadowUrl&quot;: &quot;https://leafletjs.com/examples/custom-icons/leaf-shadow.png&quot;});
-        marker_8d4bdeb4548d12ec3b5146671e283759.setIcon(custom_icon_1b08bccd04efb9a0a326e5aa42548828);
+        var custom_icon_204666639f2a257d4677bc544dfa2876 = L.icon({&quot;iconAnchor&quot;: [22, 94], &quot;iconSize&quot;: [38, 95], &quot;iconUrl&quot;: &quot;https://leafletjs.com/examples/custom-icons/leaf-red.png&quot;, &quot;popupAnchor&quot;: [-3, -76], &quot;shadowAnchor&quot;: [4, 62], &quot;shadowSize&quot;: [50, 64], &quot;shadowUrl&quot;: &quot;https://leafletjs.com/examples/custom-icons/leaf-shadow.png&quot;});
+        marker_653be412e3a2b2c3794bcacc57037972.setIcon(custom_icon_204666639f2a257d4677bc544dfa2876);
 
 
-        var popup_e5b55a987140e9922338e6abea4abcf3 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
-
-
-
-                var html_576c45cd1f774a77bf849f9a355edf3e = $(`&lt;div id=&quot;html_576c45cd1f774a77bf849f9a355edf3e&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Mt. Hood Meadows&lt;/div&gt;`)[0];
-                popup_e5b55a987140e9922338e6abea4abcf3.setContent(html_576c45cd1f774a77bf849f9a355edf3e);
+        var popup_9524743107d88626a5d54a9e34a7e80b = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
 
 
-        marker_8d4bdeb4548d12ec3b5146671e283759.bindPopup(popup_e5b55a987140e9922338e6abea4abcf3)
+                var html_a11a00befb393e9fec0822348f34e515 = $(`&lt;div id=&quot;html_a11a00befb393e9fec0822348f34e515&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Mt. Hood Meadows&lt;/div&gt;`)[0];
+                popup_9524743107d88626a5d54a9e34a7e80b.setContent(html_a11a00befb393e9fec0822348f34e515);
+
+
+
+        marker_653be412e3a2b2c3794bcacc57037972.bindPopup(popup_9524743107d88626a5d54a9e34a7e80b)
         ;
 
 
@@ -900,7 +902,7 @@ document.write(`
     <div class="footer-items__start">
       
         <div class="footer-item"><!-- This will display the version of the docs -->
-Folium version 0.1.dev1.dev+g12b8807</div>
+Folium version 0.1.dev1.dev+g3ccc47c</div>
       
         <div class="footer-item">
 

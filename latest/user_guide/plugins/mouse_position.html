@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>MousePosition &#8212; Folium 0.1.dev1+g12b8807 documentation</title>
+    <title>MousePosition &#8212; Folium 0.1.dev1+g3ccc47c documentation</title>
   
   
   
@@ -37,7 +37,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../../_static/documentation_options.js?v=945e5ea2"></script>
+    <script src="../../_static/documentation_options.js?v=c76abed4"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -433,7 +433,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="geocoder.html">Geocoder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="grouped_layer_control.html">GroupedLayerControl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="heatmap.html">Heatmap</a></li>
-<li class="toctree-l2"><a class="reference internal" href="heatmap_with_time.html">HeatMapWithTime Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatmap_with_time.html">HeatMapWithTime</a></li>
 <li class="toctree-l2"><a class="reference internal" href="locate_control.html">LocateControl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="marker_cluster.html">MarkerCluster</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mini_map.html">MiniMap</a></li>
@@ -442,15 +442,17 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="pattern.html">Pattern plugins</a></li>
 <li class="toctree-l2"><a class="reference internal" href="polyline_offset.html">PolylineOffset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="polyline_textpath.html">PolyLineTextPath</a></li>
-<li class="toctree-l2"><a class="reference internal" href="realtime.html">Realtime plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="realtime.html">Realtime</a></li>
 <li class="toctree-l2"><a class="reference internal" href="scroll_zoom_toggler.html">ScrollZoomToggler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="search.html">Search</a></li>
 <li class="toctree-l2"><a class="reference internal" href="semi_circle.html">SemiCircle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="side_by_side_layers.html">SideBySideLayers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tag_filter_button.html">TagFilterButton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="terminator.html">Terminator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeline.html">Timeline and TimelineSlider</a></li>
 <li class="toctree-l2"><a class="reference internal" href="timeslider_choropleth.html">TimeSliderChoropleth</a></li>
 <li class="toctree-l2"><a class="reference internal" href="timestamped_geojson.html">TimestampedGeoJson</a></li>
+<li class="toctree-l2"><a class="reference internal" href="treelayercontrol.html">TreeLayerControl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vector_tiles.html">Vector tiles using VectorGridProtobuf</a></li>
 <li class="toctree-l2"><a class="reference internal" href="WmsTimeDimension.html">TimestampedWmsTileLayers</a></li>
 </ul>
@@ -558,7 +560,7 @@ document.write(`
     &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css&quot;/&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
@@ -566,7 +568,7 @@ document.write(`
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_0bfd64bc704c8cbf2f435d602d050b71 {
+                #map_f10554e382b7ccda9f8a0d2b407f0f07 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -582,14 +584,14 @@ document.write(`
 &lt;body&gt;
 
 
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_0bfd64bc704c8cbf2f435d602d050b71&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_f10554e382b7ccda9f8a0d2b407f0f07&quot; &gt;&lt;/div&gt;
 
 &lt;/body&gt;
 &lt;script&gt;
 
 
-            var map_0bfd64bc704c8cbf2f435d602d050b71 = L.map(
-                &quot;map_0bfd64bc704c8cbf2f435d602d050b71&quot;,
+            var map_f10554e382b7ccda9f8a0d2b407f0f07 = L.map(
+                &quot;map_f10554e382b7ccda9f8a0d2b407f0f07&quot;,
                 {
                     center: [0.0, 0.0],
                     crs: L.CRS.EPSG3857,
@@ -603,23 +605,23 @@ document.write(`
 
 
 
-            var tile_layer_876cc64bb4a673f90f8a3016aae88b41 = L.tileLayer(
+            var tile_layer_38009724beb36461b3589e9fa6050a7a = L.tileLayer(
                 &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
                 {&quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 19, &quot;maxZoom&quot;: 19, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
             );
 
 
-            tile_layer_876cc64bb4a673f90f8a3016aae88b41.addTo(map_0bfd64bc704c8cbf2f435d602d050b71);
+            tile_layer_38009724beb36461b3589e9fa6050a7a.addTo(map_f10554e382b7ccda9f8a0d2b407f0f07);
 
 
-            var mouse_position_6f7971e47477b3618efe492d988a9e07 = new L.Control.MousePosition(
+            var mouse_position_3cdd97452b070b93928f01b1c39c85c2 = new L.Control.MousePosition(
                 {&quot;emptyString&quot;: &quot;Unavailable&quot;, &quot;lngFirst&quot;: false, &quot;numDigits&quot;: 5, &quot;position&quot;: &quot;bottomright&quot;, &quot;prefix&quot;: &quot;&quot;, &quot;separator&quot;: &quot; : &quot;}
             );
-            mouse_position_6f7971e47477b3618efe492d988a9e07.options[&quot;latFormatter&quot;] =
+            mouse_position_3cdd97452b070b93928f01b1c39c85c2.options[&quot;latFormatter&quot;] =
                 undefined;
-            mouse_position_6f7971e47477b3618efe492d988a9e07.options[&quot;lngFormatter&quot;] =
+            mouse_position_3cdd97452b070b93928f01b1c39c85c2.options[&quot;lngFormatter&quot;] =
                 undefined;
-            map_0bfd64bc704c8cbf2f435d602d050b71.addControl(mouse_position_6f7971e47477b3618efe492d988a9e07);
+            map_f10554e382b7ccda9f8a0d2b407f0f07.addControl(mouse_position_3cdd97452b070b93928f01b1c39c85c2);
 
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div>
@@ -673,7 +675,7 @@ document.write(`
     &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css&quot;/&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
@@ -681,7 +683,7 @@ document.write(`
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_99edfe5cf785e254e0b03185de814e6a {
+                #map_43846eaf0a1406f8fa701f0dc5f4474b {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -697,14 +699,14 @@ document.write(`
 &lt;body&gt;
 
 
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_99edfe5cf785e254e0b03185de814e6a&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_43846eaf0a1406f8fa701f0dc5f4474b&quot; &gt;&lt;/div&gt;
 
 &lt;/body&gt;
 &lt;script&gt;
 
 
-            var map_99edfe5cf785e254e0b03185de814e6a = L.map(
-                &quot;map_99edfe5cf785e254e0b03185de814e6a&quot;,
+            var map_43846eaf0a1406f8fa701f0dc5f4474b = L.map(
+                &quot;map_43846eaf0a1406f8fa701f0dc5f4474b&quot;,
                 {
                     center: [0.0, 0.0],
                     crs: L.CRS.EPSG3857,
@@ -718,23 +720,23 @@ document.write(`
 
 
 
-            var tile_layer_6e4f820e1ce3e3cc2cd9d162631a27e5 = L.tileLayer(
+            var tile_layer_b6eeb7c0911ba5e99e214e5fc021c2c3 = L.tileLayer(
                 &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
                 {&quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 19, &quot;maxZoom&quot;: 19, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
             );
 
 
-            tile_layer_6e4f820e1ce3e3cc2cd9d162631a27e5.addTo(map_99edfe5cf785e254e0b03185de814e6a);
+            tile_layer_b6eeb7c0911ba5e99e214e5fc021c2c3.addTo(map_43846eaf0a1406f8fa701f0dc5f4474b);
 
 
-            var mouse_position_57f227003b580e7ef7aacec9f79393f2 = new L.Control.MousePosition(
+            var mouse_position_d5b3dce7a46cd4044a51e94fd7a7e933 = new L.Control.MousePosition(
                 {&quot;emptyString&quot;: &quot;NaN&quot;, &quot;lngFirst&quot;: true, &quot;numDigits&quot;: 20, &quot;position&quot;: &quot;topright&quot;, &quot;prefix&quot;: &quot;Coordinates:&quot;, &quot;separator&quot;: &quot; | &quot;}
             );
-            mouse_position_57f227003b580e7ef7aacec9f79393f2.options[&quot;latFormatter&quot;] =
+            mouse_position_d5b3dce7a46cd4044a51e94fd7a7e933.options[&quot;latFormatter&quot;] =
                 function(num) {return L.Util.formatNum(num, 3) + &#x27; &amp;deg; &#x27;;};;
-            mouse_position_57f227003b580e7ef7aacec9f79393f2.options[&quot;lngFormatter&quot;] =
+            mouse_position_d5b3dce7a46cd4044a51e94fd7a7e933.options[&quot;lngFormatter&quot;] =
                 function(num) {return L.Util.formatNum(num, 3) + &#x27; &amp;deg; &#x27;;};;
-            map_99edfe5cf785e254e0b03185de814e6a.addControl(mouse_position_57f227003b580e7ef7aacec9f79393f2);
+            map_43846eaf0a1406f8fa701f0dc5f4474b.addControl(mouse_position_d5b3dce7a46cd4044a51e94fd7a7e933);
 
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div>
@@ -823,7 +825,7 @@ document.write(`
     <div class="footer-items__start">
       
         <div class="footer-item"><!-- This will display the version of the docs -->
-Folium version 0.1.dev1.dev+g12b8807</div>
+Folium version 0.1.dev1.dev+g3ccc47c</div>
       
         <div class="footer-item">
 

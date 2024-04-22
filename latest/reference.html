@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>API reference &#8212; Folium 0.1.dev1+g3ccc47c documentation</title>
+    <title>API reference &#8212; Folium 0.1.dev1+gae827c1 documentation</title>
   
   
   
@@ -36,8 +36,8 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="_static/documentation_options.js?v=c76abed4"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/documentation_options.js?v=80188001"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'reference';</script>
@@ -712,7 +712,7 @@ the <cite>prefix</cite> as well.</p></li>
 <li><p><strong>angle</strong> (<em>int</em><em>, </em><em>default 0</em>) – The icon will be rotated by this amount of degrees.</p></li>
 <li><p><strong>prefix</strong> (<em>str</em><em>, </em><em>default 'glyphicon'</em>) – The prefix states the source of the icon. ‘fa’ for font-awesome or
 ‘glyphicon’ for bootstrap 3.</p></li>
-<li><p><strong>https</strong> (<em>//github.com/lvoogdt/Leaflet.awesome-markers</em>) – </p></li>
+<li><p><strong>https</strong> (<em>//github.com/lvoogdt/Leaflet.awesome-markers</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -907,8 +907,8 @@ the map, implements ILayer interface.</p>
 </dd>
 </dl>
 </p></li>
-<li><p><strong>opacity</strong> (<em>float</em><em>, </em><em>default Leaflet's default</em><em> (</em><em>1.0</em><em>)</em>) – </p></li>
-<li><p><strong>alt</strong> (<em>string</em><em>, </em><em>default Leaflet's default</em><em> (</em><em>''</em><em>)</em>) – </p></li>
+<li><p><strong>opacity</strong> (<em>float</em><em>, </em><em>default Leaflet's default</em><em> (</em><em>1.0</em><em>)</em>)</p></li>
+<li><p><strong>alt</strong> (<em>string</em><em>, </em><em>default Leaflet's default</em><em> (</em><em>''</em><em>)</em>)</p></li>
 <li><p><strong>origin</strong> (<em>[</em><em>'upper'</em><em> | </em><em>'lower'</em><em>]</em><em>, </em><em>optional</em><em>, </em><em>default 'upper'</em>) – Place the [0,0] index of the array in the upper left or
 lower left corner of the axes.</p></li>
 <li><p><strong>colormap</strong> (callable, used only for <cite>mono</cite> image.) – Function of the form [x -&gt; (r,g,b)] or [x -&gt; (r,g,b,a)]
@@ -925,8 +925,8 @@ Note that if used the image will be clipped beyond latitude -85 and 85.</p></li>
 <li><p><strong>overlay</strong> (<em>bool</em><em>, </em><em>default True</em>) – Adds the layer as an optional overlay (True) or the base layer (False).</p></li>
 <li><p><strong>control</strong> (<em>bool</em><em>, </em><em>default True</em>) – Whether the Layer will be included in LayerControls.</p></li>
 <li><p><strong>show</strong> (<em>bool</em><em>, </em><em>default True</em>) – Whether the layer will be shown on opening.</p></li>
-<li><p><strong>https</strong> (<em>See</em>) – </p></li>
-<li><p><strong>options.</strong> – </p></li>
+<li><p><strong>https</strong> (<em>See</em>)</p></li>
+<li><p><strong>options.</strong></p></li>
 </ul>
 </dd>
 </dl>
@@ -1004,8 +1004,8 @@ object.</p></li>
 </dd>
 </dl>
 </p></li>
-<li><p><strong>autoplay</strong> (<em>bool</em><em>, </em><em>default True</em>) – </p></li>
-<li><p><strong>loop</strong> (<em>bool</em><em>, </em><em>default True</em>) – </p></li>
+<li><p><strong>autoplay</strong> (<em>bool</em><em>, </em><em>default True</em>)</p></li>
+<li><p><strong>loop</strong> (<em>bool</em><em>, </em><em>default True</em>)</p></li>
 <li><p><strong>name</strong> (<em>string</em><em>, </em><em>default None</em>) – The name of the Layer, as it will appear in LayerControls</p></li>
 <li><p><strong>overlay</strong> (<em>bool</em><em>, </em><em>default True</em>) – Adds the layer as an optional overlay (True) or the base layer (False).</p></li>
 <li><p><strong>control</strong> (<em>bool</em><em>, </em><em>default True</em>) – Whether the Layer will be included in LayerControls.</p></li>
@@ -1040,7 +1040,7 @@ Will be displayed in the bottom right corner.</p></li>
 <li><p><strong>**kwargs</strong> (<em>additional keyword arguments</em>) – Passed through to the underlying tileLayer.wms object and can be used
 for setting extra tileLayer.wms parameters or as extra parameters in
 the WMS request.</p></li>
-<li><p><strong>https</strong> (<em>See</em>) – </p></li>
+<li><p><strong>https</strong> (<em>See</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -1193,9 +1193,9 @@ Set it to false to disable filling on polygons or circles.</p></li>
 map (unless L.DomEvent.stopPropagation is used).</p></li>
 <li><p><strong>gradient</strong> (<em>bool</em><em>, </em><em>default None</em>) – When a gradient on the stroke and fill is available,
 allows turning it on or off.</p></li>
-<li><p><strong>fill=False.</strong> (<em>Note that the presence</em><em> of </em><em>fill_color will override</em>) – </p></li>
-<li><p><strong>equivalents.</strong> (<em>This function accepts both snake_case and lowerCamelCase</em>) – </p></li>
-<li><p><strong>https</strong> (<em>See</em>) – </p></li>
+<li><p><strong>fill=False.</strong> (<em>Note that the presence</em><em> of </em><em>fill_color will override</em>)</p></li>
+<li><p><strong>equivalents.</strong> (<em>This function accepts both snake_case and lowerCamelCase</em>)</p></li>
+<li><p><strong>https</strong> (<em>See</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -1419,7 +1419,7 @@ relative to the icon anchor.</p></li>
 Leaflet defaults is ‘leaflet-div-icon’ which draws a little white
 square with a shadow.  We set it ‘empty’ in folium.</p></li>
 <li><p><strong>html</strong> (<em>string</em>) – A custom HTML code to put inside the div element.</p></li>
-<li><p><strong>https</strong> (<em>See</em>) – </p></li>
+<li><p><strong>https</strong> (<em>See</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -1621,7 +1621,7 @@ a popup is shown that displays the latitude and longitude of the pointer.</p>
 <li><p><strong>popup</strong> (<em>string</em><em> or </em><a class="reference internal" href="#folium.map.Popup" title="folium.map.Popup"><em>Popup</em></a><em>, </em><em>optional</em>) – Input text or visualization for object displayed when clicking.</p></li>
 <li><p><strong>tooltip</strong> (<em>str</em><em> or </em><em>folium.Tooltip</em><em>, </em><em>optional</em>) – Display a text when hovering over the object.</p></li>
 <li><p><strong>**kwargs</strong> – See vector layers path_options for additional arguments.</p></li>
-<li><p><strong>https</strong> (<em>//humangeo.github.io/leaflet-dvf/</em>) – </p></li>
+<li><p><strong>https</strong> (<em>//humangeo.github.io/leaflet-dvf/</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -1813,7 +1813,7 @@ Ex: ‘relative’, ‘absolute’</p></li>
 <li><p><strong>tooltip</strong> (<em>str</em><em> or </em><em>folium.Tooltip</em><em>, </em><em>optional</em>) – Display a text when hovering over the object.</p></li>
 <li><p><strong>**kwargs</strong> – Polyline and AntPath options. See their Github page for the
 available parameters.</p></li>
-<li><p><strong>https</strong> (<em>//github.com/rubenspgcavalcante/leaflet-ant-path/</em>) – </p></li>
+<li><p><strong>https</strong> (<em>//github.com/rubenspgcavalcante/leaflet-ant-path/</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -1893,7 +1893,7 @@ If None, then the middle of the map is used.</p></li>
 <li><p><strong>wind_heading</strong> (<em>int</em><em>, </em><em>default None</em>) – Heading of the wind to an angle value between 0 and 360 degrees
 If None, then no wind is represented.</p></li>
 <li><p><strong>wind_speed</strong> (<em>int</em><em>, </em><em>default 0</em>) – Speed of the wind in knots.</p></li>
-<li><p><strong>https</strong> (<em>//github.com/thomasbrueggemann/leaflet.boatmarker</em>) – </p></li>
+<li><p><strong>https</strong> (<em>//github.com/thomasbrueggemann/leaflet.boatmarker</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -1921,7 +1921,7 @@ If None, then no wind is represented.</p></li>
 <li><p><strong>fill_color</strong> (<em>string with hexadecimal</em><em>, </em><em>RGB</em><em>, or </em><em>named color</em><em>, </em><em>default &quot;#3388ff&quot;</em>) – Color of the circle interior.</p></li>
 <li><p><strong>opacity</strong> (<em>float</em><em>, </em><em>default 0.75</em>) – Opacity of the circle outline. Should be between 0 and 1.</p></li>
 <li><p><strong>fill_opacity</strong> (<em>float</em><em>, </em><em>default 0.5</em>) – Opacity of the circle interior. Should be between 0 and 1.</p></li>
-<li><p><strong>https</strong> (<em>See</em>) – </p></li>
+<li><p><strong>https</strong> (<em>See</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -2173,7 +2173,7 @@ default: ‘Full Screen’</p></li>
 <li><p><strong>title_cancel</strong> (<em>str</em>) – change the title of the button when fullscreen is on,
 default: ‘Exit Full Screen’</p></li>
 <li><p><strong>force_separate_button</strong> (<em>bool</em><em>, </em><em>default False</em>) – force separate button to detach from zoom buttons,</p></li>
-<li><p><strong>https</strong> (<em>See</em>) – </p></li>
+<li><p><strong>https</strong> (<em>See</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -2205,7 +2205,7 @@ default: ‘Exit Full Screen’</p></li>
 <li><p><strong>zoom</strong> (<em>int</em><em>, </em><em>default 11</em><em>, </em><em>optional</em>) – Set zoom level used for displaying the geocode result, note that this only has an effect when add_marker is set to False. Set this to None to preserve the current map zoom level.</p></li>
 <li><p><strong>provider</strong> (<em>str</em><em>, </em><em>default 'nominatim'</em>) – Defaults to “nominatim”, see <a class="github reference external" href="https://github.com/perliedman/leaflet-control-geocoder/tree/2.4.0/src/geocoders">perliedman/leaflet-control-geocoder</a> for other built-in providers.</p></li>
 <li><p><strong>provider_options</strong> (<em>dict</em><em>, </em><em>default {}</em>) – For use with specific providers that may require api keys or other parameters.</p></li>
-<li><p><strong>https</strong> (<em>For all options see</em>) – </p></li>
+<li><p><strong>https</strong> (<em>For all options see</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -2438,11 +2438,11 @@ markers colors and sizes.</p></li>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>position</strong> (<em>str</em><em>, </em><em>default 'topright'</em>) – Location of the widget.</p></li>
-<li><p><strong>primary_length_unit</strong> (<em>str</em><em>, </em><em>default 'meters'</em>) – </p></li>
-<li><p><strong>secondary_length_unit</strong> (<em>str</em><em>, </em><em>default 'miles'</em>) – </p></li>
-<li><p><strong>primary_area_unit</strong> (<em>str</em><em>, </em><em>default 'sqmeters'</em>) – </p></li>
-<li><p><strong>secondary_area_unit</strong> (<em>str</em><em>, </em><em>default 'acres'</em>) – </p></li>
-<li><p><strong>https</strong> (<em>See</em>) – </p></li>
+<li><p><strong>primary_length_unit</strong> (<em>str</em><em>, </em><em>default 'meters'</em>)</p></li>
+<li><p><strong>secondary_length_unit</strong> (<em>str</em><em>, </em><em>default 'miles'</em>)</p></li>
+<li><p><strong>primary_area_unit</strong> (<em>str</em><em>, </em><em>default 'sqmeters'</em>)</p></li>
+<li><p><strong>secondary_area_unit</strong> (<em>str</em><em>, </em><em>default 'acres'</em>)</p></li>
+<li><p><strong>https</strong> (<em>See</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -2579,7 +2579,7 @@ and remains constant across zoom levels.</p>
 at a fixed distance.</p></li>
 <li><p><strong>**kwargs</strong> – Polyline options. See their Github page for the
 available parameters.</p></li>
-<li><p><strong>https</strong> (<em>See</em>) – </p></li>
+<li><p><strong>https</strong> (<em>See</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -2618,7 +2618,7 @@ available parameters.</p></li>
 Check valid attributes here:
 <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/text#attributes">https://developer.mozilla.org/en-US/docs/Web/SVG/Element/text#attributes</a>
 Example: {‘fill’: ‘#007DEF’, ‘font-weight’: ‘bold’, ‘font-size’: ‘24’}</p></li>
-<li><p><strong>https</strong> (<em>See</em>) – </p></li>
+<li><p><strong>https</strong> (<em>See</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -2665,11 +2665,11 @@ removed from the layer</p></li>
 <cite>GeoJson</cite>, but it can be anything that generates a javascript
 L.LayerGroup object, i.e. something that has the methods
 <cite>addLayer</cite> and <cite>removeLayer</cite>.</p></li>
-<li><p><strong>layer</strong> (<em>Other keyword arguments are passed to the GeoJson</em>) – </p></li>
-<li><p><strong>pass</strong> (<em>so you can</em>) – </p></li>
-<li><p><strong>style</strong> – </p></li>
-<li><p><strong>wrap</strong> (<em>point_to_layer and/or on_each_feature. Make sure to</em>) – </p></li>
-<li><p><strong>class.</strong> (<em>Javascript functions in the JsCode</em>) – </p></li>
+<li><p><strong>layer</strong> (<em>Other keyword arguments are passed to the GeoJson</em>)</p></li>
+<li><p><strong>pass</strong> (<em>so you can</em>)</p></li>
+<li><p><strong>style</strong></p></li>
+<li><p><strong>wrap</strong> (<em>point_to_layer and/or on_each_feature. Make sure to</em>)</p></li>
+<li><p><strong>class.</strong> (<em>Javascript functions in the JsCode</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -2721,7 +2721,7 @@ on their natural extent.</p></li>
 <li><p><strong>collapsed</strong> (<em>boolean</em><em>, </em><em>default False</em>) – Whether the Search box should be collapsed or not.</p></li>
 <li><p><strong>**kwargs.</strong> – Assorted style options to change feature styling on match.
 Use the same way as vector layer arguments.</p></li>
-<li><p><strong>https</strong> (<em>See</em>) – </p></li>
+<li><p><strong>https</strong> (<em>See</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -2766,7 +2766,7 @@ Use the same way as vector layer arguments.</p></li>
 <li><p><strong>popup</strong> (<em>str</em><em> or </em><em>folium.Popup</em><em>, </em><em>optional</em>) – Input text or visualization for object displayed when clicking.</p></li>
 <li><p><strong>tooltip</strong> (<em>str</em><em> or </em><em>folium.Tooltip</em><em>, </em><em>optional</em>) – Display a text when hovering over the object.</p></li>
 <li><p><strong>**kwargs</strong> – For additional arguments see <a class="reference internal" href="#folium.vector_layers.path_options" title="folium.vector_layers.path_options"><code class="xref py py-func docutils literal notranslate"><span class="pre">folium.vector_layers.path_options()</span></code></a></p></li>
-<li><p><strong>https</strong> (<em>Uses Leaflet plugin</em>) – </p></li>
+<li><p><strong>https</strong> (<em>Uses Leaflet plugin</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -2822,7 +2822,7 @@ Must be created and added to the map before being passed to this class.</p></li>
 <li><p><strong>space_color</strong> (<em>string with hexadecimal</em><em>, </em><em>RGB</em><em>, or </em><em>named color</em><em>, </em><em>default &quot;#ffffff&quot;</em>) – Color of the alternate lines.</p></li>
 <li><p><strong>opacity</strong> (<em>float</em><em>, </em><em>default 0.75</em>) – Opacity of the main lines. Should be between 0 and 1.</p></li>
 <li><p><strong>space_opacity</strong> (<em>float</em><em>, </em><em>default 0.0</em>) – Opacity of the alternate lines. Should be between 0 and 1.</p></li>
-<li><p><strong>https</strong> (<em>See</em>) – </p></li>
+<li><p><strong>https</strong> (<em>See</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -3753,7 +3753,7 @@ LayerControls) or a base layer (ticked with a radio button).</p></li>
     <div class="footer-items__start">
       
         <div class="footer-item"><!-- This will display the version of the docs -->
-Folium version 0.1.dev1.dev+g3ccc47c</div>
+Folium version 0.1.dev1.dev+gae827c1</div>
       
         <div class="footer-item">
 
@@ -3768,7 +3768,7 @@ Folium version 0.1.dev1.dev+g3ccc47c</div>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     <br/>
   </p>
 </div>

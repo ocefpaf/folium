@@ -8,36 +8,36 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Heatmap &#8212; Folium 0.1.dev1+g4b860c0 documentation</title>
+    <title>Heatmap &#8212; Folium 0.1.dev1860+g6757906 documentation</title>
   
   
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=924e9346" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../../_static/documentation_options.js?v=cf1791ab"></script>
+    <script src="../../_static/documentation_options.js?v=47dd425e"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -45,7 +45,7 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/plugins/heatmap';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://python-visualization.github.io/folium/latest/_static/switcher.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'latest';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
@@ -63,27 +63,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -105,12 +101,17 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <label class="sidebar-toggle primary-toggle" for="__primary">
+  <button class="sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
-  </label>
+  </button>
   
   
   <div class="col-lg-3 navbar-header-items__start">
@@ -172,40 +173,40 @@ document.write(`
 <nav class="navbar-nav">
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../../index.html">
-                        Home
-                      </a>
-                    </li>
-                
+<li class="nav-item pst-header-nav-item">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Home
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../../getting_started.html">
-                        Getting started
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="../../user_guide.html">
-                        User guide
-                      </a>
-                    </li>
-                
+<li class="nav-item pst-header-nav-item">
+  <a class="nav-link nav-internal" href="../../getting_started.html">
+    Getting started
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../../advanced_guide.html">
-                        Advanced guide
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../../reference.html">
-                        API reference
-                      </a>
-                    </li>
-                
+<li class="nav-item pst-header-nav-item current active">
+  <a class="nav-link nav-internal" href="../../user_guide.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item pst-header-nav-item">
+  <a class="nav-link nav-internal" href="../../advanced_guide.html">
+    Advanced guide
+  </a>
+</li>
+
+
+<li class="nav-item pst-header-nav-item">
+  <a class="nav-link nav-internal" href="../../reference.html">
+    API reference
+  </a>
+</li>
+
   </ul>
 </nav></div>
       
@@ -277,9 +278,9 @@ document.write(`
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+    <button class="sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
-    </label>
+    </button>
   
 </div>
 
@@ -300,46 +301,49 @@ document.write(`
     
       <div class="sidebar-header-items__center">
         
-          <div class="navbar-item">
+          
+          
+            <div class="navbar-item">
 <nav class="navbar-nav">
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../../index.html">
-                        Home
-                      </a>
-                    </li>
-                
+<li class="nav-item pst-header-nav-item">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Home
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../../getting_started.html">
-                        Getting started
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="../../user_guide.html">
-                        User guide
-                      </a>
-                    </li>
-                
+<li class="nav-item pst-header-nav-item">
+  <a class="nav-link nav-internal" href="../../getting_started.html">
+    Getting started
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../../advanced_guide.html">
-                        Advanced guide
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../../reference.html">
-                        API reference
-                      </a>
-                    </li>
-                
+<li class="nav-item pst-header-nav-item current active">
+  <a class="nav-link nav-internal" href="../../user_guide.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item pst-header-nav-item">
+  <a class="nav-link nav-internal" href="../../advanced_guide.html">
+    Advanced guide
+  </a>
+</li>
+
+
+<li class="nav-item pst-header-nav-item">
+  <a class="nav-link nav-internal" href="../../reference.html">
+    API reference
+  </a>
+</li>
+
   </ul>
 </nav></div>
+          
         
       </div>
     
@@ -386,28 +390,28 @@ document.write(`
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../map.html">Map</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../ui_elements.html">UI elements</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ui_elements.html">UI elements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../ui_elements/layer_control.html">LayerControl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ui_elements/popups.html">Popups</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ui_elements/icons.html">Icons</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../raster_layers.html">Raster layers</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../raster_layers.html">Raster layers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../raster_layers/tiles.html">Tiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../raster_layers/image_overlay.html">ImageOverlay</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../raster_layers/video_overlay.html">VideoOverlay</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../raster_layers/wms_tile_layer.html">WmsTileLayer</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../vector_layers.html">Vector layers</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../vector_layers.html">Vector layers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../vector_layers/circle_and_circle_marker.html">Circle and CircleMarker</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vector_layers/polyline.html">PolyLine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vector_layers/rectangle.html">Rectangle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vector_layers/polygon.html">Polygon</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vector_layers/colorline.html">ColorLine</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../geojson.html">GeoJSON and choropleth</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../geojson.html">GeoJSON and choropleth</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../geojson/geojson.html">Using <code class="docutils literal notranslate"><span class="pre">GeoJson</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../geojson/choropleth.html">Using <code class="docutils literal notranslate"><span class="pre">Choropleth</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../geojson/geojson_marker.html">GeoJSON point features with markers</a></li>
@@ -415,13 +419,13 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../geojson/geopandas_and_geo_interface.html">Using GeoPandas.GeoDataFrame in folium</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../geojson/smoothing.html">Smoothing</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../features.html">Features</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../features.html">Features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../features/fit_overlays.html">FitOverlays</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../features/click_related_classes.html">Click-related classes</a></li>
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../plugins.html">Plugins</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../plugins.html">Plugins</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="antpath.html">Antpath</a></li>
 <li class="toctree-l2"><a class="reference internal" href="boat_marker.html">BoatMarker</a></li>
 <li class="toctree-l2"><a class="reference internal" href="beautify_icon.html">BeautifyIcon</a></li>
@@ -440,6 +444,8 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="measure_control.html">MeasureControl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mouse_position.html">MousePosition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pattern.html">Pattern plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polygon_encoded.html">PolygonFromEncoded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polyline_encoded.html">PolyLineFromEncoded</a></li>
 <li class="toctree-l2"><a class="reference internal" href="polyline_offset.html">PolylineOffset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="polyline_textpath.html">PolyLineTextPath</a></li>
 <li class="toctree-l2"><a class="reference internal" href="realtime.html">Realtime</a></li>
@@ -456,7 +462,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="vector_tiles.html">Vector tiles using VectorGridProtobuf</a></li>
 <li class="toctree-l2"><a class="reference internal" href="WmsTimeDimension.html">TimestampedWmsTileLayers</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 </div>
 </nav></div>
@@ -471,13 +477,13 @@ document.write(`
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -486,7 +492,7 @@ document.write(`
 
 
 
-<nav aria-label="Breadcrumb">
+<nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
     <li class="breadcrumb-item breadcrumb-home">
@@ -578,7 +584,7 @@ document.write(`
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_b80537b612c3d635b4f86c1b89401b65 {
+                #map_74e3f6cf7b6d2cf6fcdd37d8879a9739 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -593,14 +599,14 @@ document.write(`
 &lt;body&gt;
 
 
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_b80537b612c3d635b4f86c1b89401b65&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_74e3f6cf7b6d2cf6fcdd37d8879a9739&quot; &gt;&lt;/div&gt;
 
 &lt;/body&gt;
 &lt;script&gt;
 
 
-            var map_b80537b612c3d635b4f86c1b89401b65 = L.map(
-                &quot;map_b80537b612c3d635b4f86c1b89401b65&quot;,
+            var map_74e3f6cf7b6d2cf6fcdd37d8879a9739 = L.map(
+                &quot;map_74e3f6cf7b6d2cf6fcdd37d8879a9739&quot;,
                 {
                     center: [48.0, 5.0],
                     crs: L.CRS.EPSG3857,
@@ -614,22 +620,22 @@ document.write(`
 
 
 
-            var tile_layer_19dea1e438d7be65f3fe0bfc45da4d7a = L.tileLayer(
+            var tile_layer_d4af278644d75b2cc8cdb226e245b85f = L.tileLayer(
                 &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
                 {&quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 19, &quot;maxZoom&quot;: 19, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
             );
 
 
-            tile_layer_19dea1e438d7be65f3fe0bfc45da4d7a.addTo(map_b80537b612c3d635b4f86c1b89401b65);
+            tile_layer_d4af278644d75b2cc8cdb226e245b85f.addTo(map_74e3f6cf7b6d2cf6fcdd37d8879a9739);
 
 
-            var heat_map_6e396a0d86cc86184247fddd51a4811a = L.heatLayer(
-                [[48.81577437245231, 7.084325068909829, 1.3630063787191098], [47.675008469318726, 4.97228402730719, -0.08975786914249784], [47.85982550963943, 5.755186768677584, 1.208716831931203], [49.12210350017519, 6.161562540479803, 1.730043411896729], [45.8269820222438, 6.001268883752855, 0.4795259452549926], [48.132214823758844, 6.181340877233796, 2.8093923711398094], [46.46123486086141, 3.695092530720948, 0.20780180883577026], [48.126334422787615, 4.685922554724077, 0.9329102853289251], [47.79596623336576, 5.29404682853445, 0.9047757192089765], [47.380917043245574, 5.237341922213735, 0.1968496714916571], [47.69509809553612, 5.548840286348024, 0.6271472412055035], [47.27618255955246, 5.380156491624573, -0.24555970985385134], [48.68573928280774, 4.903958435041214, 2.425724291615933], [47.67740144720109, 5.3965413881731426, 2.0202688963995135], [47.97871149485561, 4.650433783755931, 1.824145747154478], [48.16983250478773, 6.236570785757813, 3.501103854917374], [48.11923557581588, 4.551713083737085, 1.8457860232408159], [46.575534443170454, 5.19528932154012, 1.3026173354713184], [47.52822283701406, 4.972958084497685, 0.5278133879550633], [49.52800760603024, 5.648876785301572, 1.0173137915160593], [47.076030353415106, 6.747932219115884, 2.722650230162746], [49.67558295095181, 5.36202065171891, 1.9758462856089398], [47.01850857058902, 4.399206160684294, 1.666277678892076], [48.308165710492204, 6.68735035025271, 2.4828316881155983], [48.65105968023839, 4.790509702003437, -0.5734959826141282], [47.186579158258716, 6.422764318164809, 0.3132923184444789], [46.94641432805839, 4.3072660386304795, 1.1223611537883664], [47.02070425702493, 6.219172536374261, 2.2218026855732704], [48.105252745894425, 6.802176868911942, -0.4890140900340969], [46.24316651434647, 4.686227074551797, 0.786964059949042], [50.684292194725494, 3.9627589179887863, 1.2999670378078905], [48.974220126716546, 5.580615328051042, 0.3306499098951957], [47.53668996752883, 4.173706902391237, -0.39507687708442396], [48.43793499933052, 7.027687152587314, 0.5236635046267691], [48.14082697397655, 3.8234887085609772, 1.7224805134670276], [48.06340724614778, 4.295099570919662, 2.3657396474529797], [47.010463309859105, 4.036695082896339, 2.0292460708208004], [49.11069916433012, 4.075282160217959, 1.0406825344336437], [49.06306894095047, 3.701281747183514, -1.6209753844424024], [49.150834018727906, 4.13805442928812, 0.5962617642191426], [48.2546818402279, 4.651575933462011, 1.5154078661834207], [47.41245245900776, 6.002103759747308, -0.3504903606135299], [46.34574544091897, 3.447359638150438, 1.9249037486000244], [47.85425089905165, 4.978933372270781, 1.6814443671032642], [46.868862225887455, 5.8284466933277885, 1.626733920723511], [49.51265475587514, 4.911684757551372, -0.6666055198850114], [48.76582146856813, 4.908191036248879, 0.457290721341556], [49.180240615922415, 5.175553773023079, 0.6105847297643843], [47.31749227722682, 6.077918085665331, -0.23387493210048915], [49.429360331638435, 4.499825110839393, 1.4380258493111064], [47.12986602637002, 4.352224883746261, 1.1615812473314049], [48.865194825369464, 3.9568675355263925, 0.6463850681255506], [47.980364824623074, 6.831343537417034, 1.6143766790340064], [49.909288435209625, 5.675265816290472, -0.31318655833627695], [47.65141943517596, 5.41740979028113, 0.30233971527018555], [46.483704686218864, 5.875149782446341, 1.9581945434392192], [47.32254397559846, 4.925104465076178, 0.060250118364954086], [48.727462284290645, 3.5085036302267576, 1.5811622080961385], [47.41422935460593, 5.274840195049746, 2.8804496863876343], [49.77353335368063, 2.9462658453681936, -1.5656791792522333], [49.24760776032945, 4.000137419835541, 3.255887712394437], [48.3890049714297, 5.632168154045042, 1.129269670965673], [48.321002541431135, 5.201101938644947, 1.361102186567346], [48.07968731022992, 5.364864800329563, 0.28299096505469723], [48.68449567404449, 4.876326101174049, 1.43483589119341], [47.49909849078297, 4.564559948843885, -0.14791500291488324], [48.26549933444703, 5.562227955891602, -0.4918758002625365], [49.708242550288645, 6.792059192476703, 2.1071021665540455], [49.45235585997276, 5.580968964186205, -0.37770814452907264], [49.08788599206033, 5.726068026423634, 1.0252809022128755], [49.0695867413573, 4.475917206110437, 0.9545209749289892], [47.49736751680782, 5.7175988795074755, 1.8589057668619586], [47.466281547048204, 4.248044545476237, 1.2763904250731264], [47.439109206529366, 4.93390638022026, 1.0098821664341848], [49.053014831160404, 3.818014817606581, 0.5917656865117455], [46.8461749370715, 4.675281660790089, 2.678443289208139], [49.98897814679895, 5.371260819986565, 0.6063911033083359], [48.23113339259608, 3.3766106889191665, 0.9235747734842262], [47.88452433947635, 5.749482728056846, 0.8217120288062776], [47.80415547046576, 4.628555470410705, -1.4459596305861635], [49.147341062401516, 5.853211710695876, 0.9452020855446239], [48.87772300374864, 6.202848412770832, 2.3358879821044245], [48.23063600424143, 4.3430694673598165, -1.0451663327799494], [47.66114951313005, 5.879550544083457, 2.269215185604298], [47.824678780464886, 3.8193835416558084, -1.11563434104086], [48.38809888203836, 5.052680667192727, -0.5169753432370106], [48.13835742448297, 6.192941885434887, 0.6080734497414255], [48.1275491988745, 5.00787469263568, 0.015067867778962296], [46.70613414304566, 5.643366443065564, 0.008859936089396503], [47.017739305322685, 4.997816573826711, 0.3622858852667309], [47.00562059890402, 5.47301509169537, 2.2689749143176083], [45.74664669003247, 4.885255648804472, -0.2664556685231816], [48.363636180226734, 3.6856500258978375, 0.9970714725297455], [48.24238269152765, 5.542895392191462, 1.605196318601207], [48.75811251108123, 4.321512388760492, 0.9019699441223382], [48.013659611379694, 5.366263048742901, 0.20284244334212953], [48.71432591432433, 5.28438209394355, 0.8563289080860467], [49.649209078152644, 3.4632644151348817, 1.0105442926123853], [47.87739087173226, 4.875810559734997, 0.5905023489084087], [49.05941035994768, 5.935419012993813, 0.6482290119789185]],
+            var heat_map_264b05e7e8a3d9a27e2d731d4df8916d = L.heatLayer(
+                [[48.23869464042858, 3.9618240382623546, 0.4738392066127658], [47.94552745324316, 4.6752882290368785, 1.3953757248449619], [49.16854568557354, 5.125999205115311, 1.133167311060987], [49.817935583610094, 4.546349688916476, 0.9705995016025605], [49.220174159273874, 6.306802007882165, 0.9091668882798907], [46.976068188526654, 4.207335398725194, 1.7529574190133603], [47.51902847583489, 5.178528139023099, 0.958611902928999], [48.428556986621125, 6.109696522116154, 0.18850025274135207], [47.789546345581535, 4.979461037997723, 2.7618361141691397], [46.05009689173118, 5.413273108667573, 1.7754289621736428], [46.997889908149105, 5.599522516937477, 1.5913177121379807], [48.06092522970615, 5.469711494993745, 1.0289912087577566], [48.29310524182237, 3.9642133327323754, 0.22610101340269728], [48.265076267485284, 4.864965902427859, 2.1498659152255986], [48.801477092768444, 4.565180322858767, 2.4173282738317763], [47.61102557491541, 4.777004517702035, 0.5833124616722296], [47.19630428580711, 4.7062672127658045, 0.8987106883336661], [48.39911797129698, 4.555544688595907, 0.6415261242444936], [49.04909247863778, 5.313316260599982, 0.6729503369161713], [48.33199020735349, 5.0871327291454485, 1.037123880050408], [46.12301699457297, 5.540801035284471, -0.18069002808975987], [48.17769986124066, 6.379435784863516, 0.3237826818670685], [48.65180597287075, 4.609166412227268, 1.3159035378563118], [48.520458989570066, 4.62129119749244, 1.7678558541760865], [48.062929467950326, 4.569386985871501, 1.0266735218110306], [47.99557625361111, 6.861088304507878, 0.7761244545974878], [48.36393325316484, 4.78793360354896, -0.3252523626296906], [48.20669847174424, 5.4880811072428966, 1.9631556861152828], [47.19381126778105, 5.878361005982843, 1.9691240634032696], [49.03996308237535, 5.592084523456396, 1.0605836229868515], [47.675271914748876, 4.670998488446152, -0.2457085102967378], [47.234031742565605, 6.0784293297921845, 1.517709993967554], [48.06749580762631, 5.110413533194348, -0.054809240987492736], [48.402862851994065, 3.9857337550059366, 0.41960736335542503], [49.349350525463116, 4.750706011208641, 1.3504989308843616], [47.05720473009272, 6.309175788842454, 2.3532987481874432], [48.085458404710394, 5.442516325917669, 0.7091687439243111], [46.033623833569656, 7.095257175699555, 2.7690124738175634], [49.7078416214293, 4.8107857656234065, 2.6578343696900792], [47.88990933551522, 5.10646740492284, 1.8166209962447555], [48.277480360341116, 4.246137892101155, 1.3158618829233224], [47.16294536268554, 5.0613949552413455, -0.04904974132288786], [47.76120031807631, 4.611338398380571, 2.193246938800807], [48.525553553591415, 7.0202308429775675, 0.871834265645121], [45.61405196494467, 5.365643142141813, 0.831041109432769], [48.53728505648974, 5.3765632902952065, 1.916740054695345], [48.4785876900381, 5.567367245976504, 1.0582870731585001], [48.511499140993095, 4.605106409690519, 0.5790325895955567], [47.12041343005583, 4.087033718710291, -0.32390050428406836], [48.80457094411718, 4.682748717820736, 1.9015795627124985], [48.02541700533293, 5.251253612346823, 2.8733148113811984], [46.735228680890245, 3.4323810676549193, 1.7928623856646853], [48.53491750008252, 4.1740978428219515, 1.2032879287579221], [49.18797511333374, 5.746233672675555, -0.01074101132772265], [47.03185423230103, 5.845186610467841, 1.4372887815787094], [47.730374048498945, 4.53535802176399, 1.3703980019139794], [47.53818029573074, 4.452767721679548, 2.7391504889815472], [49.35593253716572, 4.625062960576735, 0.5920128021968458], [47.742306844080595, 5.18979219797237, 0.8437683395289777], [48.55727234797749, 4.412051270551418, 1.379789189914423], [48.12188679113035, 3.4861932631532735, 0.33909971046342535], [49.2538354414625, 4.806190765623599, -1.1125592963558706], [48.385658509968906, 5.81504438948927, -1.7722815611816474], [46.70683965146891, 6.128588488187599, 1.8610312243930804], [47.59320443019642, 3.5642528635865323, 1.3895710606918636], [47.33474048671224, 5.395267040265676, 0.6137131317264594], [48.738693350310236, 4.16552977141342, -0.22990811039719272], [47.10163610553297, 4.0322822533796, 2.630726347581984], [48.22201637247552, 5.1761219858361205, 0.5732112953118826], [48.13084157737056, 4.607932813315198, 1.846211723467691], [47.68002267491907, 6.698677676673852, 2.569133142951066], [47.4664300580229, 4.753499415625822, 1.4182006440723958], [47.85320025603796, 5.672383420559064, 1.1590265348205449], [47.56179191976026, 5.8146391105884625, 0.6731574275190236], [49.49213214536884, 5.0564855477178385, 3.235031162864821], [45.78029833381462, 6.750420165813661, 1.5205875112018021], [47.24915059320731, 5.537047117439096, 0.8636197877477435], [47.02200979241884, 3.2730659605678625, 1.170335900337042], [48.26975192967218, 6.001117326509955, 2.9790794614938063], [47.123775466549226, 6.099131899921832, 2.2914760211109195], [47.564777375862974, 6.0792668284301765, 1.7405568389518034], [48.29203137449807, 4.7503041644064, 1.0754585877883893], [47.457040853485815, 4.513443947230471, 1.0387269561478063], [45.817690631944295, 5.656998737702872, -1.3144006079827335], [47.55278842230425, 5.276319521182722, 0.9997221509770218], [48.33232611506605, 4.340189192863485, 0.11420010208623099], [46.48945511689542, 3.97694969262047, 0.8604628708043877], [48.86023332912882, 5.146411765541596, 1.758817914588843], [49.27858541317697, 4.755673480522271, 0.14040416499461927], [48.00551916654931, 4.317037426843855, 0.14069442935503162], [48.119831119583964, 5.465152269571985, -0.4222495247752305], [48.42111175956953, 4.637053522061376, 0.8624238363608354], [47.21157274666503, 4.018655347213975, 1.3887006330173208], [46.827266271716994, 5.143356919691609, -0.7936737656515633], [47.63879624282038, 4.7325263739258805, 1.614944578075228], [49.60504827034662, 5.197444578970001, 1.8217971315648294], [47.54525613016689, 6.410962341850526, -0.31192559696662703], [48.4739118060469, 5.500190290904063, 0.1427339343512417], [48.69305924550772, 4.425592389913476, 0.22852461343006902], [47.07342599045238, 5.785987543934146, 0.7380281026862299]],
                 {&quot;blur&quot;: 15, &quot;maxZoom&quot;: 18, &quot;minOpacity&quot;: 0.5, &quot;radius&quot;: 25}
             );
 
 
-            heat_map_6e396a0d86cc86184247fddd51a4811a.addTo(map_b80537b612c3d635b4f86c1b89401b65);
+            heat_map_264b05e7e8a3d9a27e2d731d4df8916d.addTo(map_74e3f6cf7b6d2cf6fcdd37d8879a9739);
 
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div>
@@ -643,7 +649,7 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -696,8 +702,8 @@ document.write(`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -705,7 +711,7 @@ document.write(`
     <div class="footer-items__start">
       
         <div class="footer-item"><!-- This will display the version of the docs -->
-Folium version 0.1.dev1.dev+g4b860c0</div>
+Folium version 0.1.dev1860+g6757906</div>
       
         <div class="footer-item">
 
@@ -727,7 +733,7 @@ Folium version 0.1.dev1.dev+g4b860c0</div>
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.3.
 </p></div>
       
     </div>
@@ -738,7 +744,7 @@ Folium version 0.1.dev1.dev+g4b860c0</div>
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.3.
 </p></div>
       
     </div>

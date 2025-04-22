@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>SemiCircle &#8212; Folium 0.1.dev1947+g40e0153 documentation</title>
+    <title>SemiCircle &#8212; Folium 0.1.dev1969+g266bf74 documentation</title>
   
   
   
@@ -40,12 +40,10 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=043e396a"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/documentation_options.js?v=76f35d4b"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/plugins/semi_circle';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
@@ -60,7 +58,7 @@
     <link rel="prev" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.1.dev1947+g40e0153" />
+  <meta name="docsearch:version" content="0.1.dev1969+g266bf74" />
   </head>
   
   
@@ -549,14 +547,6 @@
 &lt;head&gt;
 
     &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
-
-        &lt;script&gt;
-            L_NO_TOUCH = false;
-            L_DISABLE_3D = false;
-        &lt;/script&gt;
-
-    &lt;style&gt;html, body {width: 100%;height: 100%;margin: 0;padding: 0;}&lt;/style&gt;
-    &lt;style&gt;#map {position:absolute;top:0;bottom:0;right:0;left:0;}&lt;/style&gt;
     &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
@@ -571,7 +561,7 @@
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_94c5ec3c87c6cdddff9b6f1287fe51af {
+                #map_8ae0f5a214816b86184a87b31fd0df9c {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -581,19 +571,42 @@
                 .leaflet-container { font-size: 1rem; }
             &lt;/style&gt;
 
+            &lt;style&gt;html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            &lt;/style&gt;
+
+            &lt;style&gt;#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            &lt;/style&gt;
+
+            &lt;script&gt;
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            &lt;/script&gt;
+
+
     &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet-semicircle@2.0.4/Semicircle.min.js&quot;&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
 
 
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_94c5ec3c87c6cdddff9b6f1287fe51af&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_8ae0f5a214816b86184a87b31fd0df9c&quot; &gt;&lt;/div&gt;
 
 &lt;/body&gt;
 &lt;script&gt;
 
 
-            var map_94c5ec3c87c6cdddff9b6f1287fe51af = L.map(
-                &quot;map_94c5ec3c87c6cdddff9b6f1287fe51af&quot;,
+            var map_8ae0f5a214816b86184a87b31fd0df9c = L.map(
+                &quot;map_8ae0f5a214816b86184a87b31fd0df9c&quot;,
                 {
                     center: [45.0, 3.0],
                     crs: L.CRS.EPSG3857,
@@ -610,7 +623,7 @@
 
 
 
-            var tile_layer_c03185916ac91260c812041c9c52156e = L.tileLayer(
+            var tile_layer_2031469c774432bd9b12f0118ca9816d = L.tileLayer(
                 &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -627,10 +640,10 @@
             );
 
 
-            tile_layer_c03185916ac91260c812041c9c52156e.addTo(map_94c5ec3c87c6cdddff9b6f1287fe51af);
+            tile_layer_2031469c774432bd9b12f0118ca9816d.addTo(map_8ae0f5a214816b86184a87b31fd0df9c);
 
 
-            var semi_circle_ef9fa9d1ded4a0a675c28abbd0e68069 = L.semiCircle(
+            var semi_circle_958536cd43a578c872544892de27e851 = L.semiCircle(
                 [45.0, 3.0],
                 {
   &quot;stroke&quot;: true,
@@ -649,27 +662,27 @@
   &quot;stopAngle&quot;: 200,
 }
                 )
-                .addTo(map_94c5ec3c87c6cdddff9b6f1287fe51af);
+                .addTo(map_8ae0f5a214816b86184a87b31fd0df9c);
 
 
-        var popup_c7b9d893a9fc6bfbe1263a87c71d3dbb = L.popup({
+        var popup_ab3ed585a12b610fe299a01e713aaac0 = L.popup({
   &quot;maxWidth&quot;: &quot;100%&quot;,
 });
 
 
 
-                var html_b1ee71064273c7bec01575e06aa6ef47 = $(`&lt;div id=&quot;html_b1ee71064273c7bec01575e06aa6ef47&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;start angle - 50 degrees, stop angle - 200 degrees&lt;/div&gt;`)[0];
-                popup_c7b9d893a9fc6bfbe1263a87c71d3dbb.setContent(html_b1ee71064273c7bec01575e06aa6ef47);
+                var html_b2ee1e58bb8655b8692852b44f71199d = $(`&lt;div id=&quot;html_b2ee1e58bb8655b8692852b44f71199d&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;start angle - 50 degrees, stop angle - 200 degrees&lt;/div&gt;`)[0];
+                popup_ab3ed585a12b610fe299a01e713aaac0.setContent(html_b2ee1e58bb8655b8692852b44f71199d);
 
 
 
-        semi_circle_ef9fa9d1ded4a0a675c28abbd0e68069.bindPopup(popup_c7b9d893a9fc6bfbe1263a87c71d3dbb)
+        semi_circle_958536cd43a578c872544892de27e851.bindPopup(popup_ab3ed585a12b610fe299a01e713aaac0)
         ;
 
 
 
 
-            var semi_circle_ba1eb44970d0456627090bd737136cb8 = L.semiCircle(
+            var semi_circle_904f57792ef321050706aa3985b70720 = L.semiCircle(
                 [46.5, 9.5],
                 {
   &quot;stroke&quot;: true,
@@ -687,21 +700,21 @@
 }
                 )
                     .setDirection(360, 90)
-                .addTo(map_94c5ec3c87c6cdddff9b6f1287fe51af);
+                .addTo(map_8ae0f5a214816b86184a87b31fd0df9c);
 
 
-        var popup_d79f2a75cff42db53cfc283278e07336 = L.popup({
+        var popup_1751d10cf199263dbb615099204f0055 = L.popup({
   &quot;maxWidth&quot;: &quot;100%&quot;,
 });
 
 
 
-                var html_7661bc7f8463eecefaf1abba8593aded = $(`&lt;div id=&quot;html_7661bc7f8463eecefaf1abba8593aded&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Direction - 0 degrees, arc 90 degrees&lt;/div&gt;`)[0];
-                popup_d79f2a75cff42db53cfc283278e07336.setContent(html_7661bc7f8463eecefaf1abba8593aded);
+                var html_cee3f14832fcc82e82756799b7fcb1d6 = $(`&lt;div id=&quot;html_cee3f14832fcc82e82756799b7fcb1d6&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Direction - 0 degrees, arc 90 degrees&lt;/div&gt;`)[0];
+                popup_1751d10cf199263dbb615099204f0055.setContent(html_cee3f14832fcc82e82756799b7fcb1d6);
 
 
 
-        semi_circle_ba1eb44970d0456627090bd737136cb8.bindPopup(popup_d79f2a75cff42db53cfc283278e07336)
+        semi_circle_904f57792ef321050706aa3985b70720.bindPopup(popup_1751d10cf199263dbb615099204f0055)
         ;
 
 
@@ -781,7 +794,7 @@
     <div class="footer-items__start">
       
         <div class="footer-item"><!-- This will display the version of the docs -->
-Folium version 0.1.dev1947+g40e0153</div>
+Folium version 0.1.dev1969+g266bf74</div>
       
         <div class="footer-item">
 
@@ -796,7 +809,7 @@ Folium version 0.1.dev1947+g40e0153</div>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
     <br/>
   </p>
 </div>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Map &#8212; Folium 0.1.dev1947+g40e0153 documentation</title>
+    <title>Map &#8212; Folium 0.1.dev1969+g266bf74 documentation</title>
   
   
   
@@ -40,12 +40,10 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=043e396a"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/documentation_options.js?v=76f35d4b"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/map';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
@@ -60,7 +58,7 @@
     <link rel="prev" title="User guide" href="../user_guide.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.1.dev1947+g40e0153" />
+  <meta name="docsearch:version" content="0.1.dev1969+g266bf74" />
   </head>
   
   
@@ -526,14 +524,6 @@
 &lt;head&gt;
 
     &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
-
-        &lt;script&gt;
-            L_NO_TOUCH = false;
-            L_DISABLE_3D = false;
-        &lt;/script&gt;
-
-    &lt;style&gt;html, body {width: 100%;height: 100%;margin: 0;padding: 0;}&lt;/style&gt;
-    &lt;style&gt;#map {position:absolute;top:0;bottom:0;right:0;left:0;}&lt;/style&gt;
     &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
@@ -548,7 +538,7 @@
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_af55ee00a104f943ce36581fa0d2cf8f {
+                #map_e443830be4e3cf75e39b021e48d07b73 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -558,18 +548,41 @@
                 .leaflet-container { font-size: 1rem; }
             &lt;/style&gt;
 
+            &lt;style&gt;html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            &lt;/style&gt;
+
+            &lt;style&gt;#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            &lt;/style&gt;
+
+            &lt;script&gt;
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            &lt;/script&gt;
+
+
 &lt;/head&gt;
 &lt;body&gt;
 
 
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_af55ee00a104f943ce36581fa0d2cf8f&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_e443830be4e3cf75e39b021e48d07b73&quot; &gt;&lt;/div&gt;
 
 &lt;/body&gt;
 &lt;script&gt;
 
 
-            var map_af55ee00a104f943ce36581fa0d2cf8f = L.map(
-                &quot;map_af55ee00a104f943ce36581fa0d2cf8f&quot;,
+            var map_e443830be4e3cf75e39b021e48d07b73 = L.map(
+                &quot;map_e443830be4e3cf75e39b021e48d07b73&quot;,
                 {
                     center: [-38.625, -12.875],
                     crs: L.CRS.EPSG3857,
@@ -581,13 +594,13 @@
 
                 }
             );
-            L.control.scale().addTo(map_af55ee00a104f943ce36581fa0d2cf8f);
+            L.control.scale().addTo(map_e443830be4e3cf75e39b021e48d07b73);
 
 
 
 
 
-            var tile_layer_04e2e55857d6ffd3574ddc17f3f72e07 = L.tileLayer(
+            var tile_layer_ad0855a89ba0aecfe014141c1c67bbfb = L.tileLayer(
                 &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -604,7 +617,7 @@
             );
 
 
-            tile_layer_04e2e55857d6ffd3574ddc17f3f72e07.addTo(map_af55ee00a104f943ce36581fa0d2cf8f);
+            tile_layer_ad0855a89ba0aecfe014141c1c67bbfb.addTo(map_e443830be4e3cf75e39b021e48d07b73);
 
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div>
@@ -634,14 +647,6 @@
 &lt;head&gt;
 
     &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
-
-        &lt;script&gt;
-            L_NO_TOUCH = false;
-            L_DISABLE_3D = false;
-        &lt;/script&gt;
-
-    &lt;style&gt;html, body {width: 100%;height: 100%;margin: 0;padding: 0;}&lt;/style&gt;
-    &lt;style&gt;#map {position:absolute;top:0;bottom:0;right:0;left:0;}&lt;/style&gt;
     &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
@@ -656,7 +661,7 @@
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_7fba22a7951bf8e834708d4a15a94630 {
+                #map_d3846529b027f1c99d88a31793d9e2db {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -666,18 +671,41 @@
                 .leaflet-container { font-size: 1rem; }
             &lt;/style&gt;
 
+            &lt;style&gt;html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            &lt;/style&gt;
+
+            &lt;style&gt;#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            &lt;/style&gt;
+
+            &lt;script&gt;
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            &lt;/script&gt;
+
+
 &lt;/head&gt;
 &lt;body&gt;
 
 
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_7fba22a7951bf8e834708d4a15a94630&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_d3846529b027f1c99d88a31793d9e2db&quot; &gt;&lt;/div&gt;
 
 &lt;/body&gt;
 &lt;script&gt;
 
 
-            var map_7fba22a7951bf8e834708d4a15a94630 = L.map(
-                &quot;map_7fba22a7951bf8e834708d4a15a94630&quot;,
+            var map_d3846529b027f1c99d88a31793d9e2db = L.map(
+                &quot;map_d3846529b027f1c99d88a31793d9e2db&quot;,
                 {
                     center: [-38.625, -12.875],
                     crs: L.CRS.EPSG3857,
@@ -694,7 +722,7 @@
 
 
 
-            var tile_layer_a5b6bfc8e9a73d5d477b9ca9ca81a43a = L.tileLayer(
+            var tile_layer_914a1ef6200db502a7e3f7e96bdd0111 = L.tileLayer(
                 &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -711,7 +739,7 @@
             );
 
 
-            tile_layer_a5b6bfc8e9a73d5d477b9ca9ca81a43a.addTo(map_7fba22a7951bf8e834708d4a15a94630);
+            tile_layer_914a1ef6200db502a7e3f7e96bdd0111.addTo(map_d3846529b027f1c99d88a31793d9e2db);
 
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div>
@@ -758,14 +786,6 @@
 &lt;head&gt;
 
     &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
-
-        &lt;script&gt;
-            L_NO_TOUCH = false;
-            L_DISABLE_3D = false;
-        &lt;/script&gt;
-
-    &lt;style&gt;html, body {width: 100%;height: 100%;margin: 0;padding: 0;}&lt;/style&gt;
-    &lt;style&gt;#map {position:absolute;top:0;bottom:0;right:0;left:0;}&lt;/style&gt;
     &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
@@ -780,7 +800,7 @@
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_2ec60ec6eaddb7feadbbf8a8c3aafce5 {
+                #map_345354f7766f9eb68b5469c4f49cfb35 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -790,18 +810,41 @@
                 .leaflet-container { font-size: 1rem; }
             &lt;/style&gt;
 
+            &lt;style&gt;html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            &lt;/style&gt;
+
+            &lt;style&gt;#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            &lt;/style&gt;
+
+            &lt;script&gt;
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            &lt;/script&gt;
+
+
 &lt;/head&gt;
 &lt;body&gt;
 
 
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_2ec60ec6eaddb7feadbbf8a8c3aafce5&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_345354f7766f9eb68b5469c4f49cfb35&quot; &gt;&lt;/div&gt;
 
 &lt;/body&gt;
 &lt;script&gt;
 
 
-            var map_2ec60ec6eaddb7feadbbf8a8c3aafce5 = L.map(
-                &quot;map_2ec60ec6eaddb7feadbbf8a8c3aafce5&quot;,
+            var map_345354f7766f9eb68b5469c4f49cfb35 = L.map(
+                &quot;map_345354f7766f9eb68b5469c4f49cfb35&quot;,
                 {
                     center: [-20.0, -40.0],
                     crs: L.CRS.EPSG3857,
@@ -828,7 +871,7 @@
 
 
 
-            var tile_layer_4cd096055ee9969da098194cdd8432af = L.tileLayer(
+            var tile_layer_70d79797f1d878f7be385444689f8f02 = L.tileLayer(
                 &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -845,16 +888,16 @@
             );
 
 
-            tile_layer_4cd096055ee9969da098194cdd8432af.addTo(map_2ec60ec6eaddb7feadbbf8a8c3aafce5);
+            tile_layer_70d79797f1d878f7be385444689f8f02.addTo(map_345354f7766f9eb68b5469c4f49cfb35);
 
 
-            var circle_marker_fad73544234e54478869519d9afbaad1 = L.circleMarker(
+            var circle_marker_89e0a713416ecfc012dbfe4a1e44f178 = L.circleMarker(
                 [-15.0, -45.0],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#3388ff&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: false, &quot;fillColor&quot;: &quot;#3388ff&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 10, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_2ec60ec6eaddb7feadbbf8a8c3aafce5);
+            ).addTo(map_345354f7766f9eb68b5469c4f49cfb35);
 
 
-            circle_marker_fad73544234e54478869519d9afbaad1.bindTooltip(
+            circle_marker_89e0a713416ecfc012dbfe4a1e44f178.bindTooltip(
                 `&lt;div&gt;
                      Upper Left Corner
                  &lt;/div&gt;`,
@@ -864,13 +907,13 @@
             );
 
 
-            var circle_marker_8370a068749ec3ac0226393933150a1e = L.circleMarker(
+            var circle_marker_674b0b858db16261b3222870d021d50d = L.circleMarker(
                 [-25.0, -45.0],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#3388ff&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: false, &quot;fillColor&quot;: &quot;#3388ff&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 10, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_2ec60ec6eaddb7feadbbf8a8c3aafce5);
+            ).addTo(map_345354f7766f9eb68b5469c4f49cfb35);
 
 
-            circle_marker_8370a068749ec3ac0226393933150a1e.bindTooltip(
+            circle_marker_674b0b858db16261b3222870d021d50d.bindTooltip(
                 `&lt;div&gt;
                      Lower Left Corner
                  &lt;/div&gt;`,
@@ -880,13 +923,13 @@
             );
 
 
-            var circle_marker_9c5a07158460de8e500701ff4a52a38b = L.circleMarker(
+            var circle_marker_72159a1c53ff81911b67c46f86ef278c = L.circleMarker(
                 [-25.0, -35.0],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#3388ff&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: false, &quot;fillColor&quot;: &quot;#3388ff&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 10, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_2ec60ec6eaddb7feadbbf8a8c3aafce5);
+            ).addTo(map_345354f7766f9eb68b5469c4f49cfb35);
 
 
-            circle_marker_9c5a07158460de8e500701ff4a52a38b.bindTooltip(
+            circle_marker_72159a1c53ff81911b67c46f86ef278c.bindTooltip(
                 `&lt;div&gt;
                      Lower Right Corner
                  &lt;/div&gt;`,
@@ -896,13 +939,13 @@
             );
 
 
-            var circle_marker_2c15c461cc826c999fbd1d3cb4dc5b79 = L.circleMarker(
+            var circle_marker_6a6d84d81c7e4f29182dc78455e5f52c = L.circleMarker(
                 [-15.0, -35.0],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#3388ff&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: false, &quot;fillColor&quot;: &quot;#3388ff&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 10, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_2ec60ec6eaddb7feadbbf8a8c3aafce5);
+            ).addTo(map_345354f7766f9eb68b5469c4f49cfb35);
 
 
-            circle_marker_2c15c461cc826c999fbd1d3cb4dc5b79.bindTooltip(
+            circle_marker_6a6d84d81c7e4f29182dc78455e5f52c.bindTooltip(
                 `&lt;div&gt;
                      Upper Right Corner
                  &lt;/div&gt;`,
@@ -1001,7 +1044,7 @@
     <div class="footer-items__start">
       
         <div class="footer-item"><!-- This will display the version of the docs -->
-Folium version 0.1.dev1947+g40e0153</div>
+Folium version 0.1.dev1969+g266bf74</div>
       
         <div class="footer-item">
 
@@ -1016,7 +1059,7 @@ Folium version 0.1.dev1947+g40e0153</div>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
     <br/>
   </p>
 </div>

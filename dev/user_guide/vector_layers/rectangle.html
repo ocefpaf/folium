@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Rectangle &#8212; Folium 0.1.dev1947+g40e0153 documentation</title>
+    <title>Rectangle &#8212; Folium 0.1.dev1969+g266bf74 documentation</title>
   
   
   
@@ -40,12 +40,10 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=043e396a"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/documentation_options.js?v=76f35d4b"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/vector_layers/rectangle';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
@@ -60,7 +58,7 @@
     <link rel="prev" title="PolyLine" href="polyline.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.1.dev1947+g40e0153" />
+  <meta name="docsearch:version" content="0.1.dev1969+g266bf74" />
   </head>
   
   
@@ -557,14 +555,6 @@
 &lt;head&gt;
 
     &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
-
-        &lt;script&gt;
-            L_NO_TOUCH = false;
-            L_DISABLE_3D = false;
-        &lt;/script&gt;
-
-    &lt;style&gt;html, body {width: 100%;height: 100%;margin: 0;padding: 0;}&lt;/style&gt;
-    &lt;style&gt;#map {position:absolute;top:0;bottom:0;right:0;left:0;}&lt;/style&gt;
     &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
@@ -579,7 +569,7 @@
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_56f0d537436ff4d5ea22bf88f3bae6bc {
+                #map_7acfd33c61eaff9cd710873889a3270b {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -589,18 +579,41 @@
                 .leaflet-container { font-size: 1rem; }
             &lt;/style&gt;
 
+            &lt;style&gt;html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            &lt;/style&gt;
+
+            &lt;style&gt;#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            &lt;/style&gt;
+
+            &lt;script&gt;
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            &lt;/script&gt;
+
+
 &lt;/head&gt;
 &lt;body&gt;
 
 
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_56f0d537436ff4d5ea22bf88f3bae6bc&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_7acfd33c61eaff9cd710873889a3270b&quot; &gt;&lt;/div&gt;
 
 &lt;/body&gt;
 &lt;script&gt;
 
 
-            var map_56f0d537436ff4d5ea22bf88f3bae6bc = L.map(
-                &quot;map_56f0d537436ff4d5ea22bf88f3bae6bc&quot;,
+            var map_7acfd33c61eaff9cd710873889a3270b = L.map(
+                &quot;map_7acfd33c61eaff9cd710873889a3270b&quot;,
                 {
                     center: [35.685, 139.76],
                     crs: L.CRS.EPSG3857,
@@ -617,7 +630,7 @@
 
 
 
-            var tile_layer_819c3e68b02aca4e341b90f1ed5fdcd4 = L.tileLayer(
+            var tile_layer_6ae3f7838e8a1648297150619f645754 = L.tileLayer(
                 &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -634,33 +647,33 @@
             );
 
 
-            tile_layer_819c3e68b02aca4e341b90f1ed5fdcd4.addTo(map_56f0d537436ff4d5ea22bf88f3bae6bc);
+            tile_layer_6ae3f7838e8a1648297150619f645754.addTo(map_7acfd33c61eaff9cd710873889a3270b);
 
 
-            var rectangle_2e46573b0f812514b1b1e922d6b109be = L.rectangle(
+            var rectangle_8004f430cbb100135692b02168da0687 = L.rectangle(
                 [[35.681, 139.766], [35.691, 139.776]],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;blue&quot;, &quot;dashArray&quot;: &quot;5, 5&quot;, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;noClip&quot;: false, &quot;opacity&quot;: 1.0, &quot;smoothFactor&quot;: 1.0, &quot;stroke&quot;: true, &quot;weight&quot;: 5}
-            ).addTo(map_56f0d537436ff4d5ea22bf88f3bae6bc);
+            ).addTo(map_7acfd33c61eaff9cd710873889a3270b);
 
 
-        var popup_e0b9337226df400d0216c9cdea6734ea = L.popup({
+        var popup_07e85a266124cbf1376a95376e3afe7f = L.popup({
   &quot;maxWidth&quot;: &quot;100%&quot;,
 });
 
 
 
-                var html_611b237a1aeac2ee7a7f33f9a5b5bd15 = $(`&lt;div id=&quot;html_611b237a1aeac2ee7a7f33f9a5b5bd15&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Tokyo, Japan&lt;/div&gt;`)[0];
-                popup_e0b9337226df400d0216c9cdea6734ea.setContent(html_611b237a1aeac2ee7a7f33f9a5b5bd15);
+                var html_9b575c2ec3b1c6a9642d422e8d5af397 = $(`&lt;div id=&quot;html_9b575c2ec3b1c6a9642d422e8d5af397&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Tokyo, Japan&lt;/div&gt;`)[0];
+                popup_07e85a266124cbf1376a95376e3afe7f.setContent(html_9b575c2ec3b1c6a9642d422e8d5af397);
 
 
 
-        rectangle_2e46573b0f812514b1b1e922d6b109be.bindPopup(popup_e0b9337226df400d0216c9cdea6734ea)
+        rectangle_8004f430cbb100135692b02168da0687.bindPopup(popup_07e85a266124cbf1376a95376e3afe7f)
         ;
 
 
 
 
-            rectangle_2e46573b0f812514b1b1e922d6b109be.bindTooltip(
+            rectangle_8004f430cbb100135692b02168da0687.bindTooltip(
                 `&lt;div&gt;
                      &lt;strong&gt;Click me!&lt;/strong&gt;
                  &lt;/div&gt;`,
@@ -670,30 +683,30 @@
             );
 
 
-            var rectangle_9241793c2ab4e3142f9cfcdc58e586a6 = L.rectangle(
+            var rectangle_5e7bdab05896c2d681a1f7b63f44cf2a = L.rectangle(
                 [[35.681, 139.754], [35.691, 139.764]],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;blue&quot;, &quot;dashArray&quot;: &quot;5, 10&quot;, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;mitter&quot;, &quot;noClip&quot;: false, &quot;opacity&quot;: 1.0, &quot;smoothFactor&quot;: 1.0, &quot;stroke&quot;: true, &quot;weight&quot;: 5}
-            ).addTo(map_56f0d537436ff4d5ea22bf88f3bae6bc);
+            ).addTo(map_7acfd33c61eaff9cd710873889a3270b);
 
 
-        var popup_152b580c66998ad05090f5bc2d989eb0 = L.popup({
+        var popup_76f872246456a26c6378d14340c790ef = L.popup({
   &quot;maxWidth&quot;: &quot;100%&quot;,
 });
 
 
 
-                var html_0a3d1bad6ffaca9246c8ab524dca71d3 = $(`&lt;div id=&quot;html_0a3d1bad6ffaca9246c8ab524dca71d3&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Tokyo, Japan&lt;/div&gt;`)[0];
-                popup_152b580c66998ad05090f5bc2d989eb0.setContent(html_0a3d1bad6ffaca9246c8ab524dca71d3);
+                var html_b92570ca7cde927d6fbc8c17c4f461cc = $(`&lt;div id=&quot;html_b92570ca7cde927d6fbc8c17c4f461cc&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Tokyo, Japan&lt;/div&gt;`)[0];
+                popup_76f872246456a26c6378d14340c790ef.setContent(html_b92570ca7cde927d6fbc8c17c4f461cc);
 
 
 
-        rectangle_9241793c2ab4e3142f9cfcdc58e586a6.bindPopup(popup_152b580c66998ad05090f5bc2d989eb0)
+        rectangle_5e7bdab05896c2d681a1f7b63f44cf2a.bindPopup(popup_76f872246456a26c6378d14340c790ef)
         ;
 
 
 
 
-            rectangle_9241793c2ab4e3142f9cfcdc58e586a6.bindTooltip(
+            rectangle_5e7bdab05896c2d681a1f7b63f44cf2a.bindTooltip(
                 `&lt;div&gt;
                      &lt;strong&gt;Click me!&lt;/strong&gt;
                  &lt;/div&gt;`,
@@ -703,30 +716,30 @@
             );
 
 
-            var rectangle_70814ebb0ab0240420e8b16e07963c99 = L.rectangle(
+            var rectangle_7ebdafc5fb353e2bb48fb923cb8032fd = L.rectangle(
                 [[35.681, 139.742], [35.691, 139.7522]],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;blue&quot;, &quot;dashArray&quot;: &quot;15, 10, 5, 10, 15&quot;, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;red&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;bevel&quot;, &quot;noClip&quot;: false, &quot;opacity&quot;: 1.0, &quot;smoothFactor&quot;: 1.0, &quot;stroke&quot;: true, &quot;weight&quot;: 5}
-            ).addTo(map_56f0d537436ff4d5ea22bf88f3bae6bc);
+            ).addTo(map_7acfd33c61eaff9cd710873889a3270b);
 
 
-        var popup_09428b17308cb30281258e8d5bd7be57 = L.popup({
+        var popup_bea039e995f36712910ba08f2a259ff9 = L.popup({
   &quot;maxWidth&quot;: &quot;100%&quot;,
 });
 
 
 
-                var html_2ecc3d47c0b434bc26f03b2379862a19 = $(`&lt;div id=&quot;html_2ecc3d47c0b434bc26f03b2379862a19&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Tokyo, Japan&lt;/div&gt;`)[0];
-                popup_09428b17308cb30281258e8d5bd7be57.setContent(html_2ecc3d47c0b434bc26f03b2379862a19);
+                var html_5305e26a2db9f5aef84f91b0a3ece26d = $(`&lt;div id=&quot;html_5305e26a2db9f5aef84f91b0a3ece26d&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Tokyo, Japan&lt;/div&gt;`)[0];
+                popup_bea039e995f36712910ba08f2a259ff9.setContent(html_5305e26a2db9f5aef84f91b0a3ece26d);
 
 
 
-        rectangle_70814ebb0ab0240420e8b16e07963c99.bindPopup(popup_09428b17308cb30281258e8d5bd7be57)
+        rectangle_7ebdafc5fb353e2bb48fb923cb8032fd.bindPopup(popup_bea039e995f36712910ba08f2a259ff9)
         ;
 
 
 
 
-            rectangle_70814ebb0ab0240420e8b16e07963c99.bindTooltip(
+            rectangle_7ebdafc5fb353e2bb48fb923cb8032fd.bindTooltip(
                 `&lt;div&gt;
                      &lt;strong&gt;Click me!&lt;/strong&gt;
                  &lt;/div&gt;`,
@@ -810,7 +823,7 @@
     <div class="footer-items__start">
       
         <div class="footer-item"><!-- This will display the version of the docs -->
-Folium version 0.1.dev1947+g40e0153</div>
+Folium version 0.1.dev1969+g266bf74</div>
       
         <div class="footer-item">
 
@@ -825,7 +838,7 @@ Folium version 0.1.dev1947+g40e0153</div>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
     <br/>
   </p>
 </div>

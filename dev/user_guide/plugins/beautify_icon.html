@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>BeautifyIcon &#8212; Folium 0.1.dev1947+g40e0153 documentation</title>
+    <title>BeautifyIcon &#8212; Folium 0.1.dev1969+g266bf74 documentation</title>
   
   
   
@@ -40,12 +40,10 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=043e396a"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/documentation_options.js?v=76f35d4b"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/plugins/beautify_icon';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
@@ -60,7 +58,7 @@
     <link rel="prev" title="BoatMarker" href="boat_marker.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.1.dev1947+g40e0153" />
+  <meta name="docsearch:version" content="0.1.dev1969+g266bf74" />
   </head>
   
   
@@ -540,14 +538,6 @@
 &lt;head&gt;
 
     &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
-
-        &lt;script&gt;
-            L_NO_TOUCH = false;
-            L_DISABLE_3D = false;
-        &lt;/script&gt;
-
-    &lt;style&gt;html, body {width: 100%;height: 100%;margin: 0;padding: 0;}&lt;/style&gt;
-    &lt;style&gt;#map {position:absolute;top:0;bottom:0;right:0;left:0;}&lt;/style&gt;
     &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
@@ -562,7 +552,7 @@
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_4078800673c834b7c84776e3ad85a6f5 {
+                #map_d395a833b7ccec9fcd74b2c28b033987 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -572,20 +562,43 @@
                 .leaflet-container { font-size: 1rem; }
             &lt;/style&gt;
 
+            &lt;style&gt;html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            &lt;/style&gt;
+
+            &lt;style&gt;#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            &lt;/style&gt;
+
+            &lt;script&gt;
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            &lt;/script&gt;
+
+
     &lt;script src=&quot;https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.js&quot;&gt;&lt;/script&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.css&quot;/&gt;
 &lt;/head&gt;
 &lt;body&gt;
 
 
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_4078800673c834b7c84776e3ad85a6f5&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_d395a833b7ccec9fcd74b2c28b033987&quot; &gt;&lt;/div&gt;
 
 &lt;/body&gt;
 &lt;script&gt;
 
 
-            var map_4078800673c834b7c84776e3ad85a6f5 = L.map(
-                &quot;map_4078800673c834b7c84776e3ad85a6f5&quot;,
+            var map_d395a833b7ccec9fcd74b2c28b033987 = L.map(
+                &quot;map_d395a833b7ccec9fcd74b2c28b033987&quot;,
                 {
                     center: [45.5, -122.0],
                     crs: L.CRS.EPSG3857,
@@ -602,7 +615,7 @@
 
 
 
-            var tile_layer_672741f6c617c8516bcf254ab7c66423 = L.tileLayer(
+            var tile_layer_ed163c53e40ef8d9c7c6a375510ccb59 = L.tileLayer(
                 &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -619,17 +632,17 @@
             );
 
 
-            tile_layer_672741f6c617c8516bcf254ab7c66423.addTo(map_4078800673c834b7c84776e3ad85a6f5);
+            tile_layer_ed163c53e40ef8d9c7c6a375510ccb59.addTo(map_d395a833b7ccec9fcd74b2c28b033987);
 
 
-            var marker_437f207d37758c82dfae5c17c1aade29 = L.marker(
+            var marker_4f7f64b07a9d54f230974e7250ddeb47 = L.marker(
                 [46.0, -122.0],
                 {
 }
-            ).addTo(map_4078800673c834b7c84776e3ad85a6f5);
+            ).addTo(map_d395a833b7ccec9fcd74b2c28b033987);
 
 
-            var beautify_icon_64de28f97b3d22006376af42917632a2 = new L.BeautifyIcon.icon(
+            var beautify_icon_1c06dad354c4f35011c9882abc1fe738 = new L.BeautifyIcon.icon(
                 {
   &quot;icon&quot;: &quot;plane&quot;,
   &quot;iconShape&quot;: &quot;triangle&quot;,
@@ -642,37 +655,37 @@
   &quot;isAlphaNumericIcon&quot;: false,
 }
             )
-            marker_437f207d37758c82dfae5c17c1aade29.setIcon(beautify_icon_64de28f97b3d22006376af42917632a2);
+            marker_4f7f64b07a9d54f230974e7250ddeb47.setIcon(beautify_icon_1c06dad354c4f35011c9882abc1fe738);
 
 
-        var popup_33af42b454a199e4045726b69b500e85 = L.popup({
+        var popup_21aef0de09c39e15ce7ee36d3f5ae7ca = L.popup({
   &quot;maxWidth&quot;: &quot;100%&quot;,
 });
 
 
 
-                var html_239544567149ed08d171177d1482d02a = $(`&lt;div id=&quot;html_239544567149ed08d171177d1482d02a&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Portland, OR&lt;/div&gt;`)[0];
-                popup_33af42b454a199e4045726b69b500e85.setContent(html_239544567149ed08d171177d1482d02a);
+                var html_e4e7c7f358a805e5af56e0658b0eaf10 = $(`&lt;div id=&quot;html_e4e7c7f358a805e5af56e0658b0eaf10&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Portland, OR&lt;/div&gt;`)[0];
+                popup_21aef0de09c39e15ce7ee36d3f5ae7ca.setContent(html_e4e7c7f358a805e5af56e0658b0eaf10);
 
 
 
-        marker_437f207d37758c82dfae5c17c1aade29.bindPopup(popup_33af42b454a199e4045726b69b500e85)
+        marker_4f7f64b07a9d54f230974e7250ddeb47.bindPopup(popup_21aef0de09c39e15ce7ee36d3f5ae7ca)
         ;
 
 
 
 
-                marker_437f207d37758c82dfae5c17c1aade29.setIcon(beautify_icon_64de28f97b3d22006376af42917632a2);
+                marker_4f7f64b07a9d54f230974e7250ddeb47.setIcon(beautify_icon_1c06dad354c4f35011c9882abc1fe738);
 
 
-            var marker_6592b2816041659349670a10e051a7d2 = L.marker(
+            var marker_7414a813350b871b6bc0298e19935acf = L.marker(
                 [50.0, -122.0],
                 {
 }
-            ).addTo(map_4078800673c834b7c84776e3ad85a6f5);
+            ).addTo(map_d395a833b7ccec9fcd74b2c28b033987);
 
 
-            var beautify_icon_e6d0b2f0f22e3856648a84b828590fbb = new L.BeautifyIcon.icon(
+            var beautify_icon_e695ddbaba94a25d751af295a0a889ed = new L.BeautifyIcon.icon(
                 {
   &quot;borderWidth&quot;: 3,
   &quot;borderColor&quot;: &quot;#00ABDC&quot;,
@@ -684,27 +697,27 @@
   &quot;text&quot;: 10,
 }
             )
-            marker_6592b2816041659349670a10e051a7d2.setIcon(beautify_icon_e6d0b2f0f22e3856648a84b828590fbb);
+            marker_7414a813350b871b6bc0298e19935acf.setIcon(beautify_icon_e695ddbaba94a25d751af295a0a889ed);
 
 
-        var popup_b2b123a4ed5872a38f9dc1bc88b6ffee = L.popup({
+        var popup_645039642b83b2d5a52cb5675c20699d = L.popup({
   &quot;maxWidth&quot;: &quot;100%&quot;,
 });
 
 
 
-                var html_6b54b17c58ec1df9d5e67b530f19f5b8 = $(`&lt;div id=&quot;html_6b54b17c58ec1df9d5e67b530f19f5b8&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Portland, OR&lt;/div&gt;`)[0];
-                popup_b2b123a4ed5872a38f9dc1bc88b6ffee.setContent(html_6b54b17c58ec1df9d5e67b530f19f5b8);
+                var html_075d3126379e83df6ce74091854e5dca = $(`&lt;div id=&quot;html_075d3126379e83df6ce74091854e5dca&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Portland, OR&lt;/div&gt;`)[0];
+                popup_645039642b83b2d5a52cb5675c20699d.setContent(html_075d3126379e83df6ce74091854e5dca);
 
 
 
-        marker_6592b2816041659349670a10e051a7d2.bindPopup(popup_b2b123a4ed5872a38f9dc1bc88b6ffee)
+        marker_7414a813350b871b6bc0298e19935acf.bindPopup(popup_645039642b83b2d5a52cb5675c20699d)
         ;
 
 
 
 
-                marker_6592b2816041659349670a10e051a7d2.setIcon(beautify_icon_e6d0b2f0f22e3856648a84b828590fbb);
+                marker_7414a813350b871b6bc0298e19935acf.setIcon(beautify_icon_e695ddbaba94a25d751af295a0a889ed);
 
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div>
@@ -781,7 +794,7 @@
     <div class="footer-items__start">
       
         <div class="footer-item"><!-- This will display the version of the docs -->
-Folium version 0.1.dev1947+g40e0153</div>
+Folium version 0.1.dev1969+g266bf74</div>
       
         <div class="footer-item">
 
@@ -796,7 +809,7 @@ Folium version 0.1.dev1947+g40e0153</div>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
     <br/>
   </p>
 </div>

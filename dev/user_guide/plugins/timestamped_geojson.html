@@ -616,7 +616,7 @@
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_2b6a7f8fba70b0b28883d82671f10f2a {
+                #map_69f2210cac0380365510d686aeab4eb0 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -660,14 +660,14 @@
 &lt;body&gt;
 
 
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_2b6a7f8fba70b0b28883d82671f10f2a&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_69f2210cac0380365510d686aeab4eb0&quot; &gt;&lt;/div&gt;
 
 &lt;/body&gt;
 &lt;script&gt;
 
 
-            var map_2b6a7f8fba70b0b28883d82671f10f2a = L.map(
-                &quot;map_2b6a7f8fba70b0b28883d82671f10f2a&quot;,
+            var map_69f2210cac0380365510d686aeab4eb0 = L.map(
+                &quot;map_69f2210cac0380365510d686aeab4eb0&quot;,
                 {
                     center: [35.68159659061569, 139.76451516151428],
                     crs: L.CRS.EPSG3857,
@@ -684,7 +684,7 @@
 
 
 
-            var tile_layer_a96e939c464d78adf1495f604ee2a41b = L.tileLayer(
+            var tile_layer_abb57110f1a39d816656c963289edc3d = L.tileLayer(
                 &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -701,7 +701,7 @@
             );
 
 
-            tile_layer_a96e939c464d78adf1495f604ee2a41b.addTo(map_2b6a7f8fba70b0b28883d82671f10f2a);
+            tile_layer_abb57110f1a39d816656c963289edc3d.addTo(map_69f2210cac0380365510d686aeab4eb0);
 
 
             L.Control.TimeDimensionCustom = L.Control.TimeDimension.extend({
@@ -711,7 +711,7 @@
                     return newdate.format(&quot;YYYY-MM-DD HH:mm:ss&quot;);
                 }
             });
-            map_2b6a7f8fba70b0b28883d82671f10f2a.timeDimension = L.timeDimension(
+            map_69f2210cac0380365510d686aeab4eb0.timeDimension = L.timeDimension(
                 {
                     period: &quot;PT1M&quot;,
                 }
@@ -732,7 +732,7 @@
 },
 }
             );
-            map_2b6a7f8fba70b0b28883d82671f10f2a.addControl(this.timeDimensionControl);
+            map_69f2210cac0380365510d686aeab4eb0.addControl(this.timeDimensionControl);
 
             var geoJsonLayer = L.geoJson({&quot;type&quot;: &quot;FeatureCollection&quot;, &quot;features&quot;: [{&quot;type&quot;: &quot;Feature&quot;, &quot;geometry&quot;: {&quot;type&quot;: &quot;LineString&quot;, &quot;coordinates&quot;: [[139.76451516151428, 35.68159659061569], [139.75964426994324, 35.682590062684206]]}, &quot;properties&quot;: {&quot;times&quot;: [&quot;2017-06-02T00:00:00&quot;, &quot;2017-06-02T00:10:00&quot;], &quot;style&quot;: {&quot;color&quot;: &quot;red&quot;, &quot;weight&quot;: 5}}}, {&quot;type&quot;: &quot;Feature&quot;, &quot;geometry&quot;: {&quot;type&quot;: &quot;LineString&quot;, &quot;coordinates&quot;: [[139.75964426994324, 35.682590062684206], [139.7575843334198, 35.679505030038506]]}, &quot;properties&quot;: {&quot;times&quot;: [&quot;2017-06-02T00:10:00&quot;, &quot;2017-06-02T00:20:00&quot;], &quot;style&quot;: {&quot;color&quot;: &quot;blue&quot;, &quot;weight&quot;: 5}}}, {&quot;type&quot;: &quot;Feature&quot;, &quot;geometry&quot;: {&quot;type&quot;: &quot;LineString&quot;, &quot;coordinates&quot;: [[139.7575843334198, 35.679505030038506], [139.76337790489197, 35.678040905014065]]}, &quot;properties&quot;: {&quot;times&quot;: [&quot;2017-06-02T00:20:00&quot;, &quot;2017-06-02T00:30:00&quot;], &quot;style&quot;: {&quot;color&quot;: &quot;green&quot;, &quot;weight&quot;: 15}}}, {&quot;type&quot;: &quot;Feature&quot;, &quot;geometry&quot;: {&quot;type&quot;: &quot;LineString&quot;, &quot;coordinates&quot;: [[139.76337790489197, 35.678040905014065], [139.76451516151428, 35.68159659061569]]}, &quot;properties&quot;: {&quot;times&quot;: [&quot;2017-06-02T00:30:00&quot;, &quot;2017-06-02T00:40:00&quot;], &quot;style&quot;: {&quot;color&quot;: &quot;#FFFFFF&quot;, &quot;weight&quot;: 5}}}]}, {
                     pointToLayer: function (feature, latLng) {
@@ -768,14 +768,14 @@
                     }
                 })
 
-            var timestamped_geo_json_c7a29f774450fab5b6045647ae7c8885 = L.timeDimension.layer.geoJson(
+            var timestamped_geo_json_c276b7b618d633db302b206dc1d3bd85 = L.timeDimension.layer.geoJson(
                 geoJsonLayer,
                 {
                     updateTimeDimension: true,
                     addlastPoint: true,
                     duration: undefined,
                 }
-            ).addTo(map_2b6a7f8fba70b0b28883d82671f10f2a);
+            ).addTo(map_69f2210cac0380365510d686aeab4eb0);
 
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div>
@@ -934,7 +934,7 @@
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_1ddc95a3505c18cfcc6e92c87eba9e58 {
+                #map_03ddcd92fbf306c85c703f552e284a04 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -978,14 +978,14 @@
 &lt;body&gt;
 
 
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_1ddc95a3505c18cfcc6e92c87eba9e58&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_03ddcd92fbf306c85c703f552e284a04&quot; &gt;&lt;/div&gt;
 
 &lt;/body&gt;
 &lt;script&gt;
 
 
-            var map_1ddc95a3505c18cfcc6e92c87eba9e58 = L.map(
-                &quot;map_1ddc95a3505c18cfcc6e92c87eba9e58&quot;,
+            var map_03ddcd92fbf306c85c703f552e284a04 = L.map(
+                &quot;map_03ddcd92fbf306c85c703f552e284a04&quot;,
                 {
                     center: [56.096555, -3.64746],
                     crs: L.CRS.EPSG3857,
@@ -1002,7 +1002,7 @@
 
 
 
-            var tile_layer_431ba8853accca1293bea21fbbf1177e = L.tileLayer(
+            var tile_layer_d17901638bb489827b4359905a29f635 = L.tileLayer(
                 &quot;https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -1019,7 +1019,7 @@
             );
 
 
-            tile_layer_431ba8853accca1293bea21fbbf1177e.addTo(map_1ddc95a3505c18cfcc6e92c87eba9e58);
+            tile_layer_d17901638bb489827b4359905a29f635.addTo(map_03ddcd92fbf306c85c703f552e284a04);
 
 
             L.Control.TimeDimensionCustom = L.Control.TimeDimension.extend({
@@ -1029,7 +1029,7 @@
                     return newdate.format(&quot;YYYY/MM/DD&quot;);
                 }
             });
-            map_1ddc95a3505c18cfcc6e92c87eba9e58.timeDimension = L.timeDimension(
+            map_03ddcd92fbf306c85c703f552e284a04.timeDimension = L.timeDimension(
                 {
                     period: &quot;P1M&quot;,
                 }
@@ -1050,7 +1050,7 @@
 },
 }
             );
-            map_1ddc95a3505c18cfcc6e92c87eba9e58.addControl(this.timeDimensionControl);
+            map_03ddcd92fbf306c85c703f552e284a04.addControl(this.timeDimensionControl);
 
             var geoJsonLayer = L.geoJson({&quot;type&quot;: &quot;FeatureCollection&quot;, &quot;features&quot;: [{&quot;type&quot;: &quot;Feature&quot;, &quot;geometry&quot;: {&quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [-2.548828, 51.467697]}, &quot;properties&quot;: {&quot;time&quot;: &quot;2017-06-02&quot;, &quot;popup&quot;: &quot;&lt;h1&gt;address1&lt;/h1&gt;&quot;, &quot;id&quot;: &quot;house&quot;, &quot;icon&quot;: &quot;marker&quot;, &quot;iconstyle&quot;: {&quot;iconUrl&quot;: &quot;https://leafletjs.com/examples/geojson/baseball-marker.png&quot;, &quot;iconSize&quot;: [20, 20]}}}, {&quot;type&quot;: &quot;Feature&quot;, &quot;geometry&quot;: {&quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [-0.087891, 51.536086]}, &quot;properties&quot;: {&quot;time&quot;: &quot;2017-07-02&quot;, &quot;popup&quot;: &quot;&lt;h2 style=&#x27;color:blue;&#x27;&gt;address2&lt;h2&gt;&quot;, &quot;id&quot;: &quot;house&quot;, &quot;icon&quot;: &quot;marker&quot;, &quot;iconstyle&quot;: {&quot;iconUrl&quot;: &quot;https://leafletjs.com/examples/geojson/baseball-marker.png&quot;, &quot;iconSize&quot;: [20, 20]}}}, {&quot;type&quot;: &quot;Feature&quot;, &quot;geometry&quot;: {&quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [-6.240234, 53.383328]}, &quot;properties&quot;: {&quot;time&quot;: &quot;2017-08-02&quot;, &quot;popup&quot;: &quot;&lt;h2 style=&#x27;color:orange;&#x27;&gt;address3&lt;h2&gt;&quot;, &quot;id&quot;: &quot;house&quot;, &quot;icon&quot;: &quot;marker&quot;, &quot;iconstyle&quot;: {&quot;iconUrl&quot;: &quot;https://leafletjs.com/examples/geojson/baseball-marker.png&quot;, &quot;iconSize&quot;: [20, 20]}}}, {&quot;type&quot;: &quot;Feature&quot;, &quot;geometry&quot;: {&quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [-1.40625, 60.261617]}, &quot;properties&quot;: {&quot;time&quot;: &quot;2017-09-02&quot;, &quot;popup&quot;: &quot;&lt;h2 style=&#x27;color:green;&#x27;&gt;address4&lt;h2&gt;&quot;, &quot;id&quot;: &quot;house&quot;, &quot;icon&quot;: &quot;marker&quot;, &quot;iconstyle&quot;: {&quot;iconUrl&quot;: &quot;https://leafletjs.com/examples/geojson/baseball-marker.png&quot;, &quot;iconSize&quot;: [20, 20]}}}, {&quot;type&quot;: &quot;Feature&quot;, &quot;geometry&quot;: {&quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [-1.516113, 53.800651]}, &quot;properties&quot;: {&quot;time&quot;: &quot;2017-10-02&quot;, &quot;popup&quot;: &quot;&lt;table style=&#x27;width:100%&#x27;&gt;\n  &lt;tr&gt;\n    &lt;th&gt;Firstname&lt;/th&gt;\n    &lt;th&gt;Lastname&lt;/th&gt;\n    &lt;th&gt;Age&lt;/th&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;Jill&lt;/td&gt;\n    &lt;td&gt;Smith&lt;/td&gt;\n    &lt;td&gt;50&lt;/td&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;Eve&lt;/td&gt;\n    &lt;td&gt;Jackson&lt;/td&gt;\n    &lt;td&gt;94&lt;/td&gt;\n  &lt;/tr&gt;\n&lt;/table&gt;\n&quot;, &quot;id&quot;: &quot;house&quot;, &quot;icon&quot;: &quot;marker&quot;, &quot;iconstyle&quot;: {&quot;iconUrl&quot;: &quot;https://leafletjs.com/examples/geojson/baseball-marker.png&quot;, &quot;iconSize&quot;: [20, 20]}}}, {&quot;type&quot;: &quot;Feature&quot;, &quot;geometry&quot;: {&quot;type&quot;: &quot;LineString&quot;, &quot;coordinates&quot;: [[-2.548828, 51.467697], [-0.087891, 51.536086], [-6.240234, 53.383328], [-1.40625, 60.261617], [-1.516113, 53.800651]]}, &quot;properties&quot;: {&quot;popup&quot;: &quot;Current address&quot;, &quot;times&quot;: [&quot;2017-06-02&quot;, &quot;2017-07-02&quot;, &quot;2017-08-02&quot;, &quot;2017-09-02&quot;, &quot;2017-10-02&quot;], &quot;icon&quot;: &quot;circle&quot;, &quot;iconstyle&quot;: {&quot;fillColor&quot;: &quot;green&quot;, &quot;fillOpacity&quot;: 0.6, &quot;stroke&quot;: &quot;false&quot;, &quot;radius&quot;: 13}, &quot;style&quot;: {&quot;weight&quot;: 0}, &quot;id&quot;: &quot;man&quot;}}]}, {
                     pointToLayer: function (feature, latLng) {
@@ -1086,14 +1086,14 @@
                     }
                 })
 
-            var timestamped_geo_json_952b1f8709eae52eab9835c80588c588 = L.timeDimension.layer.geoJson(
+            var timestamped_geo_json_4fe5d47cd892b8da45684cfe488b6814 = L.timeDimension.layer.geoJson(
                 geoJsonLayer,
                 {
                     updateTimeDimension: true,
                     addlastPoint: true,
                     duration: &quot;P2M&quot;,
                 }
-            ).addTo(map_1ddc95a3505c18cfcc6e92c87eba9e58);
+            ).addTo(map_03ddcd92fbf306c85c703f552e284a04);
 
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div>
